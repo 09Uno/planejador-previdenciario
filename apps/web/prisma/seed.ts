@@ -7,18 +7,18 @@ async function main() {
   const senhaHash = await bcrypt.hash('mudar@123', 10);
 
   await prisma.usuario.upsert({
-    where: { email: 'laura@metodoadvdigital.com.br' },
+    where: { email: 'admin' },
     update: {},
     create: {
-      nome: 'Laura (Admin)',
-      email: 'laura@metodoadvdigital.com.br',
+      nome: 'Administrador',
+      email: 'admin',
       senhaHash,
       papel: 'admin',
       deveTrocarSenha: true,
     },
   });
 
-  console.log('Seed concluído: usuária admin criada.');
+  console.log('Seed concluído: usuário admin criado (admin / mudar@123).');
 }
 
 main()

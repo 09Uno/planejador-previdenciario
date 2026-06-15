@@ -16,8 +16,8 @@ export default function LoginPage() {
 
         <form action={formAction}>
           <div className="form-group">
-            <label htmlFor="email">E-mail</label>
-            <input type="email" id="email" name="email" required autoFocus />
+            <label htmlFor="usuario">Usuário</label>
+            <input type="text" id="usuario" name="usuario" required autoFocus />
           </div>
           <div className="form-group">
             <label htmlFor="senha">Senha</label>
