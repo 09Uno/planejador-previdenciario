@@ -11,7 +11,13 @@ services:
     volumes:
       - planejador-db:/data
       - planejador-storage:/app/apps/web/storage
+    networks:
+      - proxy
 
 volumes:
   planejador-db:
   planejador-storage:
+
+networks:
+  proxy:
+    external: true
