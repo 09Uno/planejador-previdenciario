@@ -37,7 +37,7 @@ export async function extrairTextoPDF(data: Uint8Array): Promise<{ texto: string
         canvas.height = viewport.height;
         const ctx = canvas.getContext('2d');
         if (!ctx) continue;
-        await page.render({ canvasContext: ctx, viewport }).promise;
+        await page.render({ canvasContext: ctx, viewport, canvas } as never).promise;
         const res = await Tesseract.recognize(canvas, 'por');
         ocrTxt += ' ' + res.data.text;
       }
