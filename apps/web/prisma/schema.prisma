@@ -1,0 +1,118 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model Usuario {
+  id        String   @id @default(cuid())
+  nome      String
+  email     String   @unique
+  senhaHash String
+  papel     String   @default("assistente") // assistente | advogado | socio | admin
+  deveTrocarSenha Boolean @default(false)
+  criadoEm  DateTime @default(now())
+
+  casos       Caso[]
+  comentarios Comentario[]
+  followups   FollowUp[]
+  eventos     EventoAuditoria[]
+}
+
+model Caso {
+  id               String   @id @default(cuid())
+  clienteNome      String
+  sexo             String   // M | F
+  nascimento       String   // dd/mm/aaaa
+  status           String   @default("coleta") // coleta | conferencia | auditoria | cenarios | minutas | revisao | aprovado | entregue
+  cnisJson         String?  // JSON bruto do parse
+  periodosJson     String?  // JSON dos períodos conferidos
+  competenciasJson String?  // JSON das competências conferidas
+  carenciaAtual    Int?
+  criadoPorId      String
+  criadoPor        Usuario  @relation(fields: [criadoPorId], references: [id])
+  criadoEm         DateTime @default(now())
+  atualizadoEm     DateTime @updatedAt
+
+  aprovadoPor   String?  // ID do usuário que aprovou
+  concessao     Concessao?
+  cenarios      Cenario[]
+  comentarios   Comentario[]
+  followups     FollowUp[]
+  eventos       EventoAuditoria[]
+  arquivos      Arquivo[]
+}
+
+model Comentario {
+  id         String   @id @default(cuid())
+  casoId     String
+  caso       Caso     @relation(fields: [casoId], references: [id], onDelete: Cascade)
+  usuarioId  String
+  usuario    Usuario  @relation(fields: [usuarioId], references: [id])
+  texto      String
+  criadoEm   DateTime @default(now())
+}
+
+model FollowUp {
+  id            String   @id @default(cuid())
+  casoId        String
+  caso          Caso     @relation(fields: [casoId], references: [id], onDelete: Cascade)
+  responsavelId String
+  responsavel   Usuario  @relation(fields: [responsavelId], references: [id])
+  descricao     String
+  prazo         DateTime
+  concluido     Boolean  @default(false)
+  criadoEm      DateTime @default(now())
+}
+
+model Concessao {
+  id              String   @id @default(cuid())
+  casoId          String   @unique
+  caso            Caso     @relation(fields: [casoId], references: [id], onDelete: Cascade)
+  dib             String?
+  rmiConcedida    Float?
+  especie         String?
+  ddb             String?  // Data do despacho do benefício
+  cartaJson       String?  // JSON bruto extraído da carta
+  divergencias    String?  // JSON com alertas de divergência
+  criadoEm        DateTime @default(now())
+}
+
+model Cenario {
+  id             String   @id @default(cuid())
+  casoId         String
+  caso           Caso     @relation(fields: [casoId], references: [id], onDelete: Cascade)
+  rotulo         String
+  premissasJson  String
+  resultadoJson  String
+  criadoEm       DateTime @default(now())
+}
+
+model EventoAuditoria {
+  id         String   @id @default(cuid())
+  usuarioId  String
+  usuario    Usuario  @relation(fields: [usuarioId], references: [id])
+  casoId     String?
+  caso       Caso?    @relation(fields: [casoId], references: [id], onDelete: SetNull)
+  acao       String
+  detalhe    String?
+  criadoEm   DateTime @default(now())
+}
+
+model Arquivo {
+  id              String   @id @default(cuid())
+  casoId          String
+  caso            Caso     @relation(fields: [casoId], references: [id], onDelete: Cascade)
+  nome            String   // nome original do arquivo
+  tipo            String   // MIME type (application/pdf, image/jpeg etc.)
+  tamanho         Int      // bytes
+  caminho         String   // relativo: storage/casos/<casoId>/AAAAMMDD-tipo-desc.ext
+  classificacao   String   @default("outro") // cnis|ctps|ppp|ctsm|ctc|carta-concessao|laudo-ltcat|procuracao|outro
+  status          String   @default("pendente") // pendente|processado|so-arquivo
+  observacao      String?
+  dadosExtraidos  String?  // JSON com o que foi extraído/vinculado
+  criadoEm        DateTime @default(now())
+}

@@ -1,0 +1,21 @@
+{
+  "name": "@mfaa/doc-gen",
+  "version": "0.1.0",
+  "description": "Geração de documentos (parecer .docx) — Machado Filgueiras",
+  "type": "module",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "test": "vitest run"
+  },
+  "license": "UNLICENSED",
+  "dependencies": {
+    "@mfaa/prev-engine": "*",
+    "docx": "^8.0.0"
+  },
+  "devDependencies": {
+    "typescript": "^5.5.0",
+    "vitest": "^2.0.0"
+  }
+}

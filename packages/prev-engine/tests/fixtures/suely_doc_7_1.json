@@ -1,0 +1,2135 @@
+{
+  "caso": "suely",
+  "doc": "7.1",
+  "arquivo_origem": "Modelos.Docts.Planejamento.Previdenciario__Suely Redua Barbosa__20251118-calc-RGPS.regra.transicao.art18.ec103.sem.especial.sobre.teto.doc.7.0.doc.7.1.txt",
+  "titulo": "Valor da Aposentadoria (RMI) - Regra de Transição Art.18 EC103/19 - sobre teto - Doc.7.1",
+  "segurado": {
+    "sexo": "F",
+    "nascimento": "26/02/1964"
+  },
+  "dib": "26/02/2029",
+  "salarios": [
+    {
+      "competencia": "07/1994",
+      "dias": 30,
+      "salarioContribuicao": 463.9,
+      "tetoCompetencia": 582.86,
+      "salarioConsiderado": 463.9,
+      "indice": 11.540981,
+      "salarioCorrigido": 5353.86,
+      "descartado": false
+    },
+    {
+      "competencia": "08/1994",
+      "dias": 30,
+      "salarioContribuicao": 421.39,
+      "tetoCompetencia": 582.86,
+      "salarioConsiderado": 421.39,
+      "indice": 10.879507,
+      "salarioCorrigido": 4584.52,
+      "descartado": false
+    },
+    {
+      "competencia": "09/1994",
+      "dias": 30,
+      "salarioContribuicao": 467.03,
+      "tetoCompetencia": 582.86,
+      "salarioConsiderado": 467.03,
+      "indice": 10.31624,
+      "salarioCorrigido": 4817.99,
+      "descartado": false
+    },
+    {
+      "competencia": "10/1994",
+      "dias": 30,
+      "salarioContribuicao": 467.03,
+      "tetoCompetencia": 582.86,
+      "salarioConsiderado": 467.03,
+      "indice": 10.162782,
+      "salarioCorrigido": 4746.32,
+      "descartado": false
+    },
+    {
+      "competencia": "11/1994",
+      "dias": 30,
+      "salarioContribuicao": 233.52,
+      "tetoCompetencia": 582.86,
+      "salarioConsiderado": 233.52,
+      "indice": 9.977206,
+      "salarioCorrigido": 2329.88,
+      "descartado": true
+    },
+    {
+      "competencia": "12/1994",
+      "dias": 30,
+      "salarioContribuicao": 288.05,
+      "tetoCompetencia": 582.86,
+      "salarioConsiderado": 288.05,
+      "indice": 9.661282,
+      "salarioCorrigido": 2782.93,
+      "descartado": true
+    },
+    {
+      "competencia": "01/1995",
+      "dias": 30,
+      "salarioContribuicao": 467.03,
+      "tetoCompetencia": 582.86,
+      "salarioConsiderado": 467.03,
+      "indice": 9.454235,
+      "salarioCorrigido": 4415.41,
+      "descartado": false
+    },
+    {
+      "competencia": "02/1995",
+      "dias": 30,
+      "salarioContribuicao": 612.99,
+      "tetoCompetencia": 582.86,
+      "salarioConsiderado": 582.86,
+      "indice": 9.298942,
+      "salarioCorrigido": 5419.98,
+      "descartado": false
+    },
+    {
+      "competencia": "03/1995",
+      "dias": 30,
+      "salarioContribuicao": 548.87,
+      "tetoCompetencia": 582.86,
+      "salarioConsiderado": 548.87,
+      "indice": 9.207785,
+      "salarioCorrigido": 5053.88,
+      "descartado": false
+    },
+    {
+      "competencia": "04/1995",
+      "dias": 30,
+      "salarioContribuicao": 432.0,
+      "tetoCompetencia": 582.86,
+      "salarioConsiderado": 432.0,
+      "indice": 9.07976,
+      "salarioCorrigido": 3922.46,
+      "descartado": true
+    },
+    {
+      "competencia": "05/1995",
+      "dias": 30,
+      "salarioContribuicao": 511.12,
+      "tetoCompetencia": 832.66,
+      "salarioConsiderado": 511.12,
+      "indice": 8.908713,
+      "salarioCorrigido": 4553.42,
+      "descartado": false
+    },
+    {
+      "competencia": "06/1995",
+      "dias": 30,
+      "salarioContribuicao": 511.12,
+      "tetoCompetencia": 832.66,
+      "salarioConsiderado": 511.12,
+      "indice": 8.685496,
+      "salarioCorrigido": 4439.33,
+      "descartado": false
+    },
+    {
+      "competencia": "07/1995",
+      "dias": 30,
+      "salarioContribuicao": 511.11,
+      "tetoCompetencia": 832.66,
+      "salarioConsiderado": 511.11,
+      "indice": 8.530245,
+      "salarioCorrigido": 4359.89,
+      "descartado": false
+    },
+    {
+      "competencia": "08/1995",
+      "dias": 30,
+      "salarioContribuicao": 511.12,
+      "tetoCompetencia": 832.66,
+      "salarioConsiderado": 511.12,
+      "indice": 8.32544,
+      "salarioCorrigido": 4255.3,
+      "descartado": false
+    },
+    {
+      "competencia": "09/1995",
+      "dias": 30,
+      "salarioContribuicao": 511.12,
+      "tetoCompetencia": 832.66,
+      "salarioConsiderado": 511.12,
+      "indice": 8.241378,
+      "salarioCorrigido": 4212.33,
+      "descartado": false
+    },
+    {
+      "competencia": "10/1995",
+      "dias": 30,
+      "salarioContribuicao": 511.12,
+      "tetoCompetencia": 832.66,
+      "salarioConsiderado": 511.12,
+      "indice": 8.146069,
+      "salarioCorrigido": 4163.62,
+      "descartado": true
+    },
+    {
+      "competencia": "11/1995",
+      "dias": 30,
+      "salarioContribuicao": 511.12,
+      "tetoCompetencia": 832.66,
+      "salarioConsiderado": 511.12,
+      "indice": 8.033598,
+      "salarioCorrigido": 4106.13,
+      "descartado": true
+    },
+    {
+      "competencia": "12/1995",
+      "dias": 30,
+      "salarioContribuicao": 511.11,
+      "tetoCompetencia": 832.66,
+      "salarioConsiderado": 511.11,
+      "indice": 7.914095,
+      "salarioCorrigido": 4044.97,
+      "descartado": true
+    },
+    {
+      "competencia": "01/1996",
+      "dias": 30,
+      "salarioContribuicao": 467.45,
+      "tetoCompetencia": 832.66,
+      "salarioConsiderado": 467.45,
+      "indice": 7.785632,
+      "salarioCorrigido": 3639.39,
+      "descartado": true
+    },
+    {
+      "competencia": "02/1996",
+      "dias": 30,
+      "salarioContribuicao": 511.11,
+      "tetoCompetencia": 832.66,
+      "salarioConsiderado": 511.11,
+      "indice": 7.673598,
+      "salarioCorrigido": 3922.05,
+      "descartado": true
+    },
+    {
+      "competencia": "03/1996",
+      "dias": 30,
+      "salarioContribuicao": 600.0,
+      "tetoCompetencia": 832.66,
+      "salarioConsiderado": 600.0,
+      "indice": 7.619499,
+      "salarioCorrigido": 4571.7,
+      "descartado": false
+    },
+    {
+      "competencia": "04/1996",
+      "dias": 30,
+      "salarioContribuicao": 600.0,
+      "tetoCompetencia": 832.66,
+      "salarioConsiderado": 600.0,
+      "indice": 7.597467,
+      "salarioCorrigido": 4558.48,
+      "descartado": false
+    },
+    {
+      "competencia": "05/1996",
+      "dias": 30,
+      "salarioContribuicao": 607.25,
+      "tetoCompetencia": 957.56,
+      "salarioConsiderado": 607.25,
+      "indice": 7.544654,
+      "salarioCorrigido": 4581.49,
+      "descartado": false
+    },
+    {
+      "competencia": "06/1996",
+      "dias": 30,
+      "salarioContribuicao": 607.25,
+      "tetoCompetencia": 957.56,
+      "salarioConsiderado": 607.25,
+      "indice": 7.419998,
+      "salarioCorrigido": 4505.79,
+      "descartado": false
+    },
+    {
+      "competencia": "07/1996",
+      "dias": 30,
+      "salarioContribuicao": 607.25,
+      "tetoCompetencia": 957.56,
+      "salarioConsiderado": 607.25,
+      "indice": 7.330565,
+      "salarioCorrigido": 4451.49,
+      "descartado": false
+    },
+    {
+      "competencia": "08/1996",
+      "dias": 30,
+      "salarioContribuicao": 607.25,
+      "tetoCompetencia": 957.56,
+      "salarioConsiderado": 607.25,
+      "indice": 7.251524,
+      "salarioCorrigido": 4403.49,
+      "descartado": false
+    },
+    {
+      "competencia": "09/1996",
+      "dias": 30,
+      "salarioContribuicao": 607.25,
+      "tetoCompetencia": 957.56,
+      "salarioConsiderado": 607.25,
+      "indice": 7.25125,
+      "salarioCorrigido": 4403.32,
+      "descartado": false
+    },
+    {
+      "competencia": "10/1996",
+      "dias": 30,
+      "salarioContribuicao": 607.25,
+      "tetoCompetencia": 957.56,
+      "salarioConsiderado": 607.25,
+      "indice": 7.241836,
+      "salarioCorrigido": 4397.61,
+      "descartado": false
+    },
+    {
+      "competencia": "11/1996",
+      "dias": 30,
+      "salarioContribuicao": 607.25,
+      "tetoCompetencia": 957.56,
+      "salarioConsiderado": 607.25,
+      "indice": 7.225939,
+      "salarioCorrigido": 4387.95,
+      "descartado": false
+    },
+    {
+      "competencia": "12/1996",
+      "dias": 30,
+      "salarioContribuicao": 607.25,
+      "tetoCompetencia": 957.56,
+      "salarioConsiderado": 607.25,
+      "indice": 7.205763,
+      "salarioCorrigido": 4375.7,
+      "descartado": false
+    },
+    {
+      "competencia": "01/1997",
+      "dias": 30,
+      "salarioContribuicao": 667.25,
+      "tetoCompetencia": 957.56,
+      "salarioConsiderado": 667.25,
+      "indice": 7.142905,
+      "salarioCorrigido": 4766.1,
+      "descartado": false
+    },
+    {
+      "competencia": "02/1997",
+      "dias": 30,
+      "salarioContribuicao": 934.12,
+      "tetoCompetencia": 957.56,
+      "salarioConsiderado": 934.12,
+      "indice": 7.031803,
+      "salarioCorrigido": 6568.55,
+      "descartado": false
+    },
+    {
+      "competencia": "03/1997",
+      "dias": 30,
+      "salarioContribuicao": 599.99,
+      "tetoCompetencia": 957.56,
+      "salarioConsiderado": 599.99,
+      "indice": 7.002393,
+      "salarioCorrigido": 4201.37,
+      "descartado": true
+    },
+    {
+      "competencia": "04/1997",
+      "dias": 30,
+      "salarioContribuicao": 667.25,
+      "tetoCompetencia": 957.56,
+      "salarioConsiderado": 667.25,
+      "indice": 6.922096,
+      "salarioCorrigido": 4618.77,
+      "descartado": false
+    },
+    {
+      "competencia": "05/1997",
+      "dias": 30,
+      "salarioContribuicao": 714.0,
+      "tetoCompetencia": 957.56,
+      "salarioConsiderado": 714.0,
+      "indice": 6.881495,
+      "salarioCorrigido": 4913.39,
+      "descartado": false
+    },
+    {
+      "competencia": "06/1997",
+      "dias": 30,
+      "salarioContribuicao": 714.0,
+      "tetoCompetencia": 1031.87,
+      "salarioConsiderado": 714.0,
+      "indice": 6.860913,
+      "salarioCorrigido": 4898.69,
+      "descartado": false
+    },
+    {
+      "competencia": "07/1997",
+      "dias": 30,
+      "salarioContribuicao": 714.0,
+      "tetoCompetencia": 1031.87,
+      "salarioConsiderado": 714.0,
+      "indice": 6.81322,
+      "salarioCorrigido": 4864.64,
+      "descartado": false
+    },
+    {
+      "competencia": "08/1997",
+      "dias": 30,
+      "salarioContribuicao": 1404.2,
+      "tetoCompetencia": 1031.87,
+      "salarioConsiderado": 1031.87,
+      "indice": 6.807094,
+      "salarioCorrigido": 7024.04,
+      "descartado": false
+    },
+    {
+      "competencia": "09/1997",
+      "dias": 30,
+      "salarioContribuicao": 571.25,
+      "tetoCompetencia": 1031.87,
+      "salarioConsiderado": 571.25,
+      "indice": 6.807094,
+      "salarioCorrigido": 3888.55,
+      "descartado": true
+    },
+    {
+      "competencia": "10/1997",
+      "dias": 30,
+      "salarioContribuicao": 120.0,
+      "tetoCompetencia": 1031.87,
+      "salarioConsiderado": 120.0,
+      "indice": 6.767167,
+      "salarioCorrigido": 812.06,
+      "descartado": true
+    },
+    {
+      "competencia": "11/1997",
+      "dias": 7,
+      "salarioContribuicao": 192.6,
+      "tetoCompetencia": 1031.87,
+      "salarioConsiderado": 192.6,
+      "indice": 6.744237,
+      "salarioCorrigido": 1298.94,
+      "descartado": true
+    },
+    {
+      "competencia": "01/2009",
+      "dias": 30,
+      "salarioContribuicao": 1050.0,
+      "tetoCompetencia": 3038.99,
+      "salarioConsiderado": 1050.0,
+      "indice": 2.538464,
+      "salarioCorrigido": 2665.39,
+      "descartado": true
+    },
+    {
+      "competencia": "02/2009",
+      "dias": 30,
+      "salarioContribuicao": 1428.01,
+      "tetoCompetencia": 3218.9,
+      "salarioConsiderado": 1428.01,
+      "indice": 2.522321,
+      "salarioCorrigido": 3601.9,
+      "descartado": true
+    },
+    {
+      "competencia": "03/2009",
+      "dias": 30,
+      "salarioContribuicao": 2394.0,
+      "tetoCompetencia": 3218.9,
+      "salarioConsiderado": 2394.0,
+      "indice": 2.514526,
+      "salarioCorrigido": 6019.78,
+      "descartado": false
+    },
+    {
+      "competencia": "03/2015",
+      "dias": 30,
+      "salarioContribuicao": 788.0,
+      "tetoCompetencia": 4663.75,
+      "salarioConsiderado": 788.0,
+      "indice": 1.765903,
+      "salarioCorrigido": 1391.53,
+      "descartado": true
+    },
+    {
+      "competencia": "04/2015",
+      "dias": 30,
+      "salarioContribuicao": 788.0,
+      "tetoCompetencia": 4663.75,
+      "salarioConsiderado": 788.0,
+      "indice": 1.739634,
+      "salarioCorrigido": 1370.83,
+      "descartado": true
+    },
+    {
+      "competencia": "05/2015",
+      "dias": 30,
+      "salarioContribuicao": 788.0,
+      "tetoCompetencia": 4663.75,
+      "salarioConsiderado": 788.0,
+      "indice": 1.72737,
+      "salarioCorrigido": 1361.17,
+      "descartado": true
+    },
+    {
+      "competencia": "06/2015",
+      "dias": 30,
+      "salarioContribuicao": 788.0,
+      "tetoCompetencia": 4663.75,
+      "salarioConsiderado": 788.0,
+      "indice": 1.710437,
+      "salarioCorrigido": 1347.82,
+      "descartado": true
+    },
+    {
+      "competencia": "07/2015",
+      "dias": 30,
+      "salarioContribuicao": 788.0,
+      "tetoCompetencia": 4663.75,
+      "salarioConsiderado": 788.0,
+      "indice": 1.697367,
+      "salarioCorrigido": 1337.53,
+      "descartado": true
+    },
+    {
+      "competencia": "08/2015",
+      "dias": 30,
+      "salarioContribuicao": 788.0,
+      "tetoCompetencia": 4663.75,
+      "salarioConsiderado": 788.0,
+      "indice": 1.687579,
+      "salarioCorrigido": 1329.81,
+      "descartado": true
+    },
+    {
+      "competencia": "09/2015",
+      "dias": 30,
+      "salarioContribuicao": 788.0,
+      "tetoCompetencia": 4663.75,
+      "salarioConsiderado": 788.0,
+      "indice": 1.683371,
+      "salarioCorrigido": 1326.5,
+      "descartado": true
+    },
+    {
+      "competencia": "10/2015",
+      "dias": 30,
+      "salarioContribuicao": 788.0,
+      "tetoCompetencia": 4663.75,
+      "salarioConsiderado": 788.0,
+      "indice": 1.674829,
+      "salarioCorrigido": 1319.77,
+      "descartado": true
+    },
+    {
+      "competencia": "11/2015",
+      "dias": 30,
+      "salarioContribuicao": 4052.69,
+      "tetoCompetencia": 4663.75,
+      "salarioConsiderado": 4052.69,
+      "indice": 1.662031,
+      "salarioCorrigido": 6735.7,
+      "descartado": false
+    },
+    {
+      "competencia": "12/2015",
+      "dias": 30,
+      "salarioContribuicao": 5239.86,
+      "tetoCompetencia": 4663.75,
+      "salarioConsiderado": 4663.75,
+      "indice": 1.643785,
+      "salarioCorrigido": 7666.21,
+      "descartado": false
+    },
+    {
+      "competencia": "01/2016",
+      "dias": 30,
+      "salarioContribuicao": 5350.26,
+      "tetoCompetencia": 5189.82,
+      "salarioConsiderado": 5189.82,
+      "indice": 1.629123,
+      "salarioCorrigido": 8454.86,
+      "descartado": false
+    },
+    {
+      "competencia": "02/2016",
+      "dias": 30,
+      "salarioContribuicao": 5350.26,
+      "tetoCompetencia": 5189.82,
+      "salarioConsiderado": 5189.82,
+      "indice": 1.604889,
+      "salarioCorrigido": 8329.09,
+      "descartado": false
+    },
+    {
+      "competencia": "03/2016",
+      "dias": 30,
+      "salarioContribuicao": 5350.26,
+      "tetoCompetencia": 5189.82,
+      "salarioConsiderado": 5189.82,
+      "indice": 1.589786,
+      "salarioCorrigido": 8250.71,
+      "descartado": false
+    },
+    {
+      "competencia": "04/2016",
+      "dias": 30,
+      "salarioContribuicao": 5350.26,
+      "tetoCompetencia": 5189.82,
+      "salarioConsiderado": 5189.82,
+      "indice": 1.582822,
+      "salarioCorrigido": 8214.56,
+      "descartado": false
+    },
+    {
+      "competencia": "05/2016",
+      "dias": 30,
+      "salarioContribuicao": 5381.03,
+      "tetoCompetencia": 5189.82,
+      "salarioConsiderado": 5189.82,
+      "indice": 1.572756,
+      "salarioCorrigido": 8162.32,
+      "descartado": false
+    },
+    {
+      "competencia": "06/2016",
+      "dias": 30,
+      "salarioContribuicao": 5381.03,
+      "tetoCompetencia": 5189.82,
+      "salarioConsiderado": 5189.82,
+      "indice": 1.557493,
+      "salarioCorrigido": 8083.11,
+      "descartado": false
+    },
+    {
+      "competencia": "07/2016",
+      "dias": 30,
+      "salarioContribuicao": 5381.03,
+      "tetoCompetencia": 5189.82,
+      "salarioConsiderado": 5189.82,
+      "indice": 1.550207,
+      "salarioCorrigido": 8045.3,
+      "descartado": false
+    },
+    {
+      "competencia": "08/2016",
+      "dias": 30,
+      "salarioContribuicao": 5381.03,
+      "tetoCompetencia": 5189.82,
+      "salarioConsiderado": 5189.82,
+      "indice": 1.540349,
+      "salarioCorrigido": 7994.13,
+      "descartado": false
+    },
+    {
+      "competencia": "09/2016",
+      "dias": 30,
+      "salarioContribuicao": 5381.03,
+      "tetoCompetencia": 5189.82,
+      "salarioConsiderado": 5189.82,
+      "indice": 1.535588,
+      "salarioCorrigido": 7969.43,
+      "descartado": false
+    },
+    {
+      "competencia": "10/2016",
+      "dias": 30,
+      "salarioContribuicao": 4894.53,
+      "tetoCompetencia": 5189.82,
+      "salarioConsiderado": 4894.53,
+      "indice": 1.534361,
+      "salarioCorrigido": 7509.98,
+      "descartado": false
+    },
+    {
+      "competencia": "11/2016",
+      "dias": 30,
+      "salarioContribuicao": 4894.53,
+      "tetoCompetencia": 5189.82,
+      "salarioConsiderado": 4894.53,
+      "indice": 1.531757,
+      "salarioCorrigido": 7497.23,
+      "descartado": false
+    },
+    {
+      "competencia": "12/2016",
+      "dias": 30,
+      "salarioContribuicao": 4894.53,
+      "tetoCompetencia": 5189.82,
+      "salarioConsiderado": 4894.53,
+      "indice": 1.530685,
+      "salarioCorrigido": 7491.99,
+      "descartado": false
+    },
+    {
+      "competencia": "01/2017",
+      "dias": 30,
+      "salarioContribuicao": 5389.33,
+      "tetoCompetencia": 5531.31,
+      "salarioConsiderado": 5389.33,
+      "indice": 1.528545,
+      "salarioCorrigido": 8237.84,
+      "descartado": false
+    },
+    {
+      "competencia": "02/2017",
+      "dias": 30,
+      "salarioContribuicao": 7132.26,
+      "tetoCompetencia": 5531.31,
+      "salarioConsiderado": 5531.31,
+      "indice": 1.522152,
+      "salarioCorrigido": 8419.5,
+      "descartado": false
+    },
+    {
+      "competencia": "03/2017",
+      "dias": 30,
+      "salarioContribuicao": 5898.39,
+      "tetoCompetencia": 5531.31,
+      "salarioConsiderado": 5531.31,
+      "indice": 1.518508,
+      "salarioCorrigido": 8399.34,
+      "descartado": false
+    },
+    {
+      "competencia": "04/2017",
+      "dias": 30,
+      "salarioContribuicao": 5892.14,
+      "tetoCompetencia": 5531.31,
+      "salarioConsiderado": 5531.31,
+      "indice": 1.513664,
+      "salarioCorrigido": 8372.55,
+      "descartado": false
+    },
+    {
+      "competencia": "05/2017",
+      "dias": 30,
+      "salarioContribuicao": 5353.6,
+      "tetoCompetencia": 5531.31,
+      "salarioConsiderado": 5353.6,
+      "indice": 1.512454,
+      "salarioCorrigido": 8097.08,
+      "descartado": false
+    },
+    {
+      "competencia": "06/2017",
+      "dias": 30,
+      "salarioContribuicao": 5892.14,
+      "tetoCompetencia": 5531.31,
+      "salarioConsiderado": 5531.31,
+      "indice": 1.507029,
+      "salarioCorrigido": 8335.85,
+      "descartado": false
+    },
+    {
+      "competencia": "07/2017",
+      "dias": 30,
+      "salarioContribuicao": 5917.14,
+      "tetoCompetencia": 5531.31,
+      "salarioConsiderado": 5531.31,
+      "indice": 1.511564,
+      "salarioCorrigido": 8360.93,
+      "descartado": false
+    },
+    {
+      "competencia": "08/2017",
+      "dias": 30,
+      "salarioContribuicao": 5898.39,
+      "tetoCompetencia": 5531.31,
+      "salarioConsiderado": 5531.31,
+      "indice": 1.508998,
+      "salarioCorrigido": 8346.74,
+      "descartado": false
+    },
+    {
+      "competencia": "09/2017",
+      "dias": 30,
+      "salarioContribuicao": 5359.85,
+      "tetoCompetencia": 5531.31,
+      "salarioConsiderado": 5359.85,
+      "indice": 1.509451,
+      "salarioCorrigido": 8090.43,
+      "descartado": false
+    },
+    {
+      "competencia": "10/2017",
+      "dias": 30,
+      "salarioContribuicao": 5463.3,
+      "tetoCompetencia": 5531.31,
+      "salarioConsiderado": 5463.3,
+      "indice": 1.509753,
+      "salarioCorrigido": 8248.24,
+      "descartado": false
+    },
+    {
+      "competencia": "11/2017",
+      "dias": 30,
+      "salarioContribuicao": 5566.75,
+      "tetoCompetencia": 5531.31,
+      "salarioConsiderado": 5531.31,
+      "indice": 1.504188,
+      "salarioCorrigido": 8320.13,
+      "descartado": false
+    },
+    {
+      "competencia": "12/2017",
+      "dias": 30,
+      "salarioContribuicao": 5463.3,
+      "tetoCompetencia": 5531.31,
+      "salarioConsiderado": 5463.3,
+      "indice": 1.501485,
+      "salarioCorrigido": 8203.07,
+      "descartado": false
+    },
+    {
+      "competencia": "01/2018",
+      "dias": 30,
+      "salarioContribuicao": 5466.7,
+      "tetoCompetencia": 5645.8,
+      "salarioConsiderado": 5466.7,
+      "indice": 1.497591,
+      "salarioCorrigido": 8186.88,
+      "descartado": false
+    },
+    {
+      "competencia": "02/2018",
+      "dias": 30,
+      "salarioContribuicao": 5466.7,
+      "tetoCompetencia": 5645.8,
+      "salarioConsiderado": 5466.7,
+      "indice": 1.494155,
+      "salarioCorrigido": 8168.1,
+      "descartado": false
+    },
+    {
+      "competencia": "03/2018",
+      "dias": 30,
+      "salarioContribuicao": 5466.7,
+      "tetoCompetencia": 5645.8,
+      "salarioConsiderado": 5466.7,
+      "indice": 1.49147,
+      "salarioCorrigido": 8153.42,
+      "descartado": false
+    },
+    {
+      "competencia": "04/2018",
+      "dias": 30,
+      "salarioContribuicao": 5466.7,
+      "tetoCompetencia": 5645.8,
+      "salarioConsiderado": 5466.7,
+      "indice": 1.490427,
+      "salarioCorrigido": 8147.72,
+      "descartado": false
+    },
+    {
+      "competencia": "05/2018",
+      "dias": 30,
+      "salarioContribuicao": 5466.7,
+      "tetoCompetencia": 5645.8,
+      "salarioConsiderado": 5466.7,
+      "indice": 1.487303,
+      "salarioCorrigido": 8130.64,
+      "descartado": false
+    },
+    {
+      "competencia": "06/2018",
+      "dias": 30,
+      "salarioContribuicao": 5466.7,
+      "tetoCompetencia": 5645.8,
+      "salarioConsiderado": 5466.7,
+      "indice": 1.480935,
+      "salarioCorrigido": 8095.83,
+      "descartado": false
+    },
+    {
+      "competencia": "07/2018",
+      "dias": 30,
+      "salarioContribuicao": 5466.7,
+      "tetoCompetencia": 5645.8,
+      "salarioConsiderado": 5466.7,
+      "indice": 1.460057,
+      "salarioCorrigido": 7981.69,
+      "descartado": false
+    },
+    {
+      "competencia": "08/2018",
+      "dias": 30,
+      "salarioContribuicao": 7021.8,
+      "tetoCompetencia": 5645.8,
+      "salarioConsiderado": 5645.8,
+      "indice": 1.456416,
+      "salarioCorrigido": 8222.63,
+      "descartado": false
+    },
+    {
+      "competencia": "09/2018",
+      "dias": 30,
+      "salarioContribuicao": 5705.94,
+      "tetoCompetencia": 5645.8,
+      "salarioConsiderado": 5645.8,
+      "indice": 1.456416,
+      "salarioCorrigido": 8222.63,
+      "descartado": false
+    },
+    {
+      "competencia": "10/2018",
+      "dias": 30,
+      "salarioContribuicao": 5676.15,
+      "tetoCompetencia": 5645.8,
+      "salarioConsiderado": 5645.8,
+      "indice": 1.452059,
+      "salarioCorrigido": 8198.04,
+      "descartado": false
+    },
+    {
+      "competencia": "11/2018",
+      "dias": 30,
+      "salarioContribuicao": 954.0,
+      "tetoCompetencia": 5645.8,
+      "salarioConsiderado": 954.0,
+      "indice": 1.446274,
+      "salarioCorrigido": 1379.75,
+      "descartado": true
+    },
+    {
+      "competencia": "12/2018",
+      "dias": 30,
+      "salarioContribuicao": 5658.74,
+      "tetoCompetencia": 5645.8,
+      "salarioConsiderado": 5645.8,
+      "indice": 1.449899,
+      "salarioCorrigido": 8185.84,
+      "descartado": false
+    },
+    {
+      "competencia": "01/2019",
+      "dias": 30,
+      "salarioContribuicao": 5667.54,
+      "tetoCompetencia": 5839.45,
+      "salarioConsiderado": 5667.54,
+      "indice": 1.447872,
+      "salarioCorrigido": 8205.88,
+      "descartado": false
+    },
+    {
+      "competencia": "02/2019",
+      "dias": 30,
+      "salarioContribuicao": 5667.54,
+      "tetoCompetencia": 5839.45,
+      "salarioConsiderado": 5667.54,
+      "indice": 1.442678,
+      "salarioCorrigido": 8176.44,
+      "descartado": false
+    },
+    {
+      "competencia": "03/2019",
+      "dias": 30,
+      "salarioContribuicao": 5667.54,
+      "tetoCompetencia": 5839.45,
+      "salarioConsiderado": 5667.54,
+      "indice": 1.43493,
+      "salarioCorrigido": 8132.52,
+      "descartado": false
+    },
+    {
+      "competencia": "04/2019",
+      "dias": 30,
+      "salarioContribuicao": 5667.54,
+      "tetoCompetencia": 5839.45,
+      "salarioConsiderado": 5667.54,
+      "indice": 1.423965,
+      "salarioCorrigido": 8070.38,
+      "descartado": false
+    },
+    {
+      "competencia": "05/2019",
+      "dias": 30,
+      "salarioContribuicao": 5667.54,
+      "tetoCompetencia": 5839.45,
+      "salarioConsiderado": 5667.54,
+      "indice": 1.415472,
+      "salarioCorrigido": 8022.25,
+      "descartado": false
+    },
+    {
+      "competencia": "06/2019",
+      "dias": 30,
+      "salarioContribuicao": 5667.54,
+      "tetoCompetencia": 5839.45,
+      "salarioConsiderado": 5667.54,
+      "indice": 1.413352,
+      "salarioCorrigido": 8010.23,
+      "descartado": false
+    },
+    {
+      "competencia": "07/2019",
+      "dias": 30,
+      "salarioContribuicao": 6595.29,
+      "tetoCompetencia": 5839.45,
+      "salarioConsiderado": 5839.45,
+      "indice": 1.413211,
+      "salarioCorrigido": 8252.38,
+      "descartado": false
+    },
+    {
+      "competencia": "08/2019",
+      "dias": 30,
+      "salarioContribuicao": 6038.64,
+      "tetoCompetencia": 5839.45,
+      "salarioConsiderado": 5839.45,
+      "indice": 1.411799,
+      "salarioCorrigido": 8244.13,
+      "descartado": false
+    },
+    {
+      "competencia": "09/2019",
+      "dias": 30,
+      "salarioContribuicao": 6224.18,
+      "tetoCompetencia": 5839.45,
+      "salarioConsiderado": 5839.45,
+      "indice": 1.410107,
+      "salarioCorrigido": 8234.25,
+      "descartado": false
+    },
+    {
+      "competencia": "10/2019",
+      "dias": 30,
+      "salarioContribuicao": 5825.24,
+      "tetoCompetencia": 5839.45,
+      "salarioConsiderado": 5825.24,
+      "indice": 1.410812,
+      "salarioCorrigido": 8218.32,
+      "descartado": false
+    },
+    {
+      "competencia": "11/2019",
+      "dias": 30,
+      "salarioContribuicao": 6051.04,
+      "tetoCompetencia": 5839.45,
+      "salarioConsiderado": 5839.45,
+      "indice": 1.410248,
+      "salarioCorrigido": 8235.08,
+      "descartado": false
+    },
+    {
+      "competencia": "12/2019",
+      "dias": 30,
+      "salarioContribuicao": 7414.17,
+      "tetoCompetencia": 5839.45,
+      "salarioConsiderado": 5839.45,
+      "indice": 1.402674,
+      "salarioCorrigido": 8190.85,
+      "descartado": false
+    },
+    {
+      "competencia": "01/2020",
+      "dias": 30,
+      "salarioContribuicao": 6813.42,
+      "tetoCompetencia": 6101.06,
+      "salarioConsiderado": 6101.06,
+      "indice": 1.385768,
+      "salarioCorrigido": 8454.65,
+      "descartado": false
+    },
+    {
+      "competencia": "02/2020",
+      "dias": 30,
+      "salarioContribuicao": 5856.29,
+      "tetoCompetencia": 6101.06,
+      "salarioConsiderado": 5856.29,
+      "indice": 1.38314,
+      "salarioCorrigido": 8100.07,
+      "descartado": false
+    },
+    {
+      "competencia": "03/2020",
+      "dias": 30,
+      "salarioContribuicao": 5856.29,
+      "tetoCompetencia": 6101.06,
+      "salarioConsiderado": 5856.29,
+      "indice": 1.380792,
+      "salarioCorrigido": 8086.32,
+      "descartado": false
+    },
+    {
+      "competencia": "04/2020",
+      "dias": 30,
+      "salarioContribuicao": 5856.29,
+      "tetoCompetencia": 6101.06,
+      "salarioConsiderado": 5856.29,
+      "indice": 1.378311,
+      "salarioCorrigido": 8071.79,
+      "descartado": false
+    },
+    {
+      "competencia": "05/2020",
+      "dias": 30,
+      "salarioContribuicao": 5856.29,
+      "tetoCompetencia": 6101.06,
+      "salarioConsiderado": 5856.29,
+      "indice": 1.381489,
+      "salarioCorrigido": 8090.4,
+      "descartado": false
+    },
+    {
+      "competencia": "06/2020",
+      "dias": 30,
+      "salarioContribuicao": 7533.99,
+      "tetoCompetencia": 6101.06,
+      "salarioConsiderado": 6101.06,
+      "indice": 1.384951,
+      "salarioCorrigido": 8449.67,
+      "descartado": false
+    },
+    {
+      "competencia": "07/2020",
+      "dias": 30,
+      "salarioContribuicao": 6686.31,
+      "tetoCompetencia": 6101.06,
+      "salarioConsiderado": 6101.06,
+      "indice": 1.380809,
+      "salarioCorrigido": 8424.4,
+      "descartado": false
+    },
+    {
+      "competencia": "08/2020",
+      "dias": 30,
+      "salarioContribuicao": 5856.29,
+      "tetoCompetencia": 6101.06,
+      "salarioConsiderado": 5856.29,
+      "indice": 1.37476,
+      "salarioCorrigido": 8050.99,
+      "descartado": false
+    },
+    {
+      "competencia": "09/2020",
+      "dias": 30,
+      "salarioContribuicao": 5856.29,
+      "tetoCompetencia": 6101.06,
+      "salarioConsiderado": 5856.29,
+      "indice": 1.369828,
+      "salarioCorrigido": 8022.11,
+      "descartado": false
+    },
+    {
+      "competencia": "10/2020",
+      "dias": 30,
+      "salarioContribuicao": 5856.29,
+      "tetoCompetencia": 6101.06,
+      "salarioConsiderado": 5856.29,
+      "indice": 1.358014,
+      "salarioCorrigido": 7952.92,
+      "descartado": false
+    },
+    {
+      "competencia": "11/2020",
+      "dias": 30,
+      "salarioContribuicao": 6105.12,
+      "tetoCompetencia": 6101.06,
+      "salarioConsiderado": 6101.06,
+      "indice": 1.346034,
+      "salarioCorrigido": 8212.24,
+      "descartado": false
+    },
+    {
+      "competencia": "12/2020",
+      "dias": 30,
+      "salarioContribuicao": 6812.33,
+      "tetoCompetencia": 6101.06,
+      "salarioConsiderado": 6101.06,
+      "indice": 1.333367,
+      "salarioCorrigido": 8134.95,
+      "descartado": false
+    },
+    {
+      "competencia": "01/2021",
+      "dias": 30,
+      "salarioContribuicao": 6319.17,
+      "tetoCompetencia": 6433.57,
+      "salarioConsiderado": 6319.17,
+      "indice": 1.31418,
+      "salarioCorrigido": 8304.53,
+      "descartado": false
+    },
+    {
+      "competencia": "02/2021",
+      "dias": 30,
+      "salarioContribuicao": 6033.4,
+      "tetoCompetencia": 6433.57,
+      "salarioConsiderado": 6033.4,
+      "indice": 1.310641,
+      "salarioCorrigido": 7907.63,
+      "descartado": false
+    },
+    {
+      "competencia": "03/2021",
+      "dias": 30,
+      "salarioContribuicao": 6033.4,
+      "tetoCompetencia": 6433.57,
+      "salarioConsiderado": 6033.4,
+      "indice": 1.299981,
+      "salarioCorrigido": 7843.31,
+      "descartado": false
+    },
+    {
+      "competencia": "04/2021",
+      "dias": 30,
+      "salarioContribuicao": 6033.4,
+      "tetoCompetencia": 6433.57,
+      "salarioConsiderado": 6033.4,
+      "indice": 1.288897,
+      "salarioCorrigido": 7776.43,
+      "descartado": false
+    },
+    {
+      "competencia": "05/2021",
+      "dias": 30,
+      "salarioContribuicao": 9133.4,
+      "tetoCompetencia": 6433.57,
+      "salarioConsiderado": 6433.57,
+      "indice": 1.284017,
+      "salarioCorrigido": 8260.82,
+      "descartado": false
+    },
+    {
+      "competencia": "06/2021",
+      "dias": 30,
+      "salarioContribuicao": 6247.73,
+      "tetoCompetencia": 6433.57,
+      "salarioConsiderado": 6247.73,
+      "indice": 1.271808,
+      "salarioCorrigido": 7945.92,
+      "descartado": false
+    },
+    {
+      "competencia": "07/2021",
+      "dias": 30,
+      "salarioContribuicao": 6890.72,
+      "tetoCompetencia": 6433.57,
+      "salarioConsiderado": 6433.57,
+      "indice": 1.264223,
+      "salarioCorrigido": 8133.47,
+      "descartado": false
+    },
+    {
+      "competencia": "08/2021",
+      "dias": 30,
+      "salarioContribuicao": 6033.4,
+      "tetoCompetencia": 6433.57,
+      "salarioConsiderado": 6033.4,
+      "indice": 1.251458,
+      "salarioCorrigido": 7550.55,
+      "descartado": false
+    },
+    {
+      "competencia": "09/2021",
+      "dias": 30,
+      "salarioContribuicao": 6167.88,
+      "tetoCompetencia": 6433.57,
+      "salarioConsiderado": 6167.88,
+      "indice": 1.240541,
+      "salarioCorrigido": 7651.51,
+      "descartado": false
+    },
+    {
+      "competencia": "10/2021",
+      "dias": 30,
+      "salarioContribuicao": 6297.02,
+      "tetoCompetencia": 6433.57,
+      "salarioConsiderado": 6297.02,
+      "indice": 1.225831,
+      "salarioCorrigido": 7719.09,
+      "descartado": false
+    },
+    {
+      "competencia": "11/2021",
+      "dias": 30,
+      "salarioContribuicao": 6327.56,
+      "tetoCompetencia": 6433.57,
+      "salarioConsiderado": 6327.56,
+      "indice": 1.211775,
+      "salarioCorrigido": 7667.58,
+      "descartado": false
+    },
+    {
+      "competencia": "12/2021",
+      "dias": 30,
+      "salarioContribuicao": 6327.56,
+      "tetoCompetencia": 6433.57,
+      "salarioConsiderado": 6327.56,
+      "indice": 1.20168,
+      "salarioCorrigido": 7603.71,
+      "descartado": false
+    },
+    {
+      "competencia": "01/2022",
+      "dias": 30,
+      "salarioContribuicao": 7552.36,
+      "tetoCompetencia": 7087.22,
+      "salarioConsiderado": 7087.22,
+      "indice": 1.192972,
+      "salarioCorrigido": 8454.86,
+      "descartado": false
+    },
+    {
+      "competencia": "02/2022",
+      "dias": 30,
+      "salarioContribuicao": 6349.96,
+      "tetoCompetencia": 7087.22,
+      "salarioConsiderado": 6349.96,
+      "indice": 1.185032,
+      "salarioCorrigido": 7524.91,
+      "descartado": false
+    },
+    {
+      "competencia": "03/2022",
+      "dias": 30,
+      "salarioContribuicao": 6349.96,
+      "tetoCompetencia": 7087.22,
+      "salarioConsiderado": 6349.96,
+      "indice": 1.173299,
+      "salarioCorrigido": 7450.41,
+      "descartado": false
+    },
+    {
+      "competencia": "04/2022",
+      "dias": 30,
+      "salarioContribuicao": 6661.45,
+      "tetoCompetencia": 7087.22,
+      "salarioConsiderado": 6661.45,
+      "indice": 1.153573,
+      "salarioCorrigido": 7684.47,
+      "descartado": false
+    },
+    {
+      "competencia": "05/2022",
+      "dias": 30,
+      "salarioContribuicao": 8091.68,
+      "tetoCompetencia": 7087.22,
+      "salarioConsiderado": 7087.22,
+      "indice": 1.141699,
+      "salarioCorrigido": 8091.48,
+      "descartado": false
+    },
+    {
+      "competencia": "06/2022",
+      "dias": 30,
+      "salarioContribuicao": 6661.45,
+      "tetoCompetencia": 7087.22,
+      "salarioConsiderado": 6661.45,
+      "indice": 1.136585,
+      "salarioCorrigido": 7571.31,
+      "descartado": false
+    },
+    {
+      "competencia": "07/2022",
+      "dias": 30,
+      "salarioContribuicao": 7915.75,
+      "tetoCompetencia": 7087.22,
+      "salarioConsiderado": 7087.22,
+      "indice": 1.129581,
+      "salarioCorrigido": 8005.59,
+      "descartado": false
+    },
+    {
+      "competencia": "08/2022",
+      "dias": 30,
+      "salarioContribuicao": 6661.45,
+      "tetoCompetencia": 7087.22,
+      "salarioConsiderado": 6661.45,
+      "indice": 1.1364,
+      "salarioCorrigido": 7570.07,
+      "descartado": false
+    },
+    {
+      "competencia": "09/2022",
+      "dias": 30,
+      "salarioContribuicao": 6661.45,
+      "tetoCompetencia": 7087.22,
+      "salarioConsiderado": 6661.45,
+      "indice": 1.139933,
+      "salarioCorrigido": 7593.61,
+      "descartado": false
+    },
+    {
+      "competencia": "10/2022",
+      "dias": 30,
+      "salarioContribuicao": 6661.45,
+      "tetoCompetencia": 7087.22,
+      "salarioConsiderado": 6661.45,
+      "indice": 1.143593,
+      "salarioCorrigido": 7617.99,
+      "descartado": false
+    },
+    {
+      "competencia": "11/2022",
+      "dias": 30,
+      "salarioContribuicao": 6661.45,
+      "tetoCompetencia": 7087.22,
+      "salarioConsiderado": 6661.45,
+      "indice": 1.138243,
+      "salarioCorrigido": 7582.35,
+      "descartado": false
+    },
+    {
+      "competencia": "12/2022",
+      "dias": 30,
+      "salarioContribuicao": 8715.54,
+      "tetoCompetencia": 7087.22,
+      "salarioConsiderado": 7087.22,
+      "indice": 1.133934,
+      "salarioCorrigido": 8036.44,
+      "descartado": false
+    },
+    {
+      "competencia": "01/2023",
+      "dias": 30,
+      "salarioContribuicao": 7192.97,
+      "tetoCompetencia": 7507.49,
+      "salarioConsiderado": 7192.97,
+      "indice": 1.126164,
+      "salarioCorrigido": 8100.47,
+      "descartado": false
+    },
+    {
+      "competencia": "02/2023",
+      "dias": 30,
+      "salarioContribuicao": 7360.74,
+      "tetoCompetencia": 7507.49,
+      "salarioConsiderado": 7360.74,
+      "indice": 1.121007,
+      "salarioCorrigido": 8251.45,
+      "descartado": false
+    },
+    {
+      "competencia": "03/2023",
+      "dias": 30,
+      "salarioContribuicao": 8207.73,
+      "tetoCompetencia": 7507.49,
+      "salarioConsiderado": 7507.49,
+      "indice": 1.112441,
+      "salarioCorrigido": 8351.65,
+      "descartado": false
+    },
+    {
+      "competencia": "04/2023",
+      "dias": 30,
+      "salarioContribuicao": 8196.09,
+      "tetoCompetencia": 7507.49,
+      "salarioConsiderado": 7507.49,
+      "indice": 1.105367,
+      "salarioCorrigido": 8298.53,
+      "descartado": false
+    },
+    {
+      "competencia": "05/2023",
+      "dias": 30,
+      "salarioContribuicao": 7249.26,
+      "tetoCompetencia": 7507.49,
+      "salarioConsiderado": 7249.26,
+      "indice": 1.099539,
+      "salarioCorrigido": 7970.85,
+      "descartado": false
+    },
+    {
+      "competencia": "06/2023",
+      "dias": 30,
+      "salarioContribuicao": 7249.26,
+      "tetoCompetencia": 7507.49,
+      "salarioConsiderado": 7249.26,
+      "indice": 1.095595,
+      "salarioCorrigido": 7942.26,
+      "descartado": false
+    },
+    {
+      "competencia": "07/2023",
+      "dias": 30,
+      "salarioContribuicao": 7877.45,
+      "tetoCompetencia": 7507.49,
+      "salarioConsiderado": 7507.49,
+      "indice": 1.096692,
+      "salarioCorrigido": 8233.41,
+      "descartado": false
+    },
+    {
+      "competencia": "08/2023",
+      "dias": 30,
+      "salarioContribuicao": 7798.93,
+      "tetoCompetencia": 7507.49,
+      "salarioConsiderado": 7507.49,
+      "indice": 1.09768,
+      "salarioCorrigido": 8240.82,
+      "descartado": false
+    },
+    {
+      "competencia": "09/2023",
+      "dias": 30,
+      "salarioContribuicao": 7388.97,
+      "tetoCompetencia": 7507.49,
+      "salarioConsiderado": 7388.97,
+      "indice": 1.095489,
+      "salarioCorrigido": 8094.54,
+      "descartado": false
+    },
+    {
+      "competencia": "10/2023",
+      "dias": 30,
+      "salarioContribuicao": 7388.97,
+      "tetoCompetencia": 7507.49,
+      "salarioConsiderado": 7388.97,
+      "indice": 1.094285,
+      "salarioCorrigido": 8085.64,
+      "descartado": false
+    },
+    {
+      "competencia": "11/2023",
+      "dias": 30,
+      "salarioContribuicao": 7388.97,
+      "tetoCompetencia": 7507.49,
+      "salarioConsiderado": 7388.97,
+      "indice": 1.092974,
+      "salarioCorrigido": 8075.95,
+      "descartado": false
+    },
+    {
+      "competencia": "12/2023",
+      "dias": 30,
+      "salarioContribuicao": 9082.89,
+      "tetoCompetencia": 7507.49,
+      "salarioConsiderado": 7507.49,
+      "indice": 1.091882,
+      "salarioCorrigido": 8197.29,
+      "descartado": false
+    },
+    {
+      "competencia": "01/2024",
+      "dias": 30,
+      "salarioContribuicao": 8779.8,
+      "tetoCompetencia": 7786.02,
+      "salarioConsiderado": 7786.02,
+      "indice": 1.085909,
+      "salarioCorrigido": 8454.91,
+      "descartado": false
+    },
+    {
+      "competencia": "02/2024",
+      "dias": 30,
+      "salarioContribuicao": 7512.52,
+      "tetoCompetencia": 7786.02,
+      "salarioConsiderado": 7512.52,
+      "indice": 1.079755,
+      "salarioCorrigido": 8111.68,
+      "descartado": false
+    },
+    {
+      "competencia": "03/2024",
+      "dias": 30,
+      "salarioContribuicao": 7551.29,
+      "tetoCompetencia": 7786.02,
+      "salarioConsiderado": 7551.29,
+      "indice": 1.071079,
+      "salarioCorrigido": 8088.03,
+      "descartado": false
+    },
+    {
+      "competencia": "04/2024",
+      "dias": 30,
+      "salarioContribuicao": 7551.29,
+      "tetoCompetencia": 7786.02,
+      "salarioConsiderado": 7551.29,
+      "indice": 1.069048,
+      "salarioCorrigido": 8072.69,
+      "descartado": false
+    },
+    {
+      "competencia": "05/2024",
+      "dias": 30,
+      "salarioContribuicao": 7315.05,
+      "tetoCompetencia": 7786.02,
+      "salarioConsiderado": 7315.05,
+      "indice": 1.065107,
+      "salarioCorrigido": 7791.31,
+      "descartado": false
+    },
+    {
+      "competencia": "06/2024",
+      "dias": 30,
+      "salarioContribuicao": 7047.85,
+      "tetoCompetencia": 7786.02,
+      "salarioConsiderado": 7047.85,
+      "indice": 1.06023,
+      "salarioCorrigido": 7472.34,
+      "descartado": false
+    },
+    {
+      "competencia": "07/2024",
+      "dias": 30,
+      "salarioContribuicao": 8779.8,
+      "tetoCompetencia": 7786.02,
+      "salarioConsiderado": 7786.02,
+      "indice": 1.057586,
+      "salarioCorrigido": 8234.39,
+      "descartado": false
+    },
+    {
+      "competencia": "08/2024",
+      "dias": 30,
+      "salarioContribuicao": 7551.29,
+      "tetoCompetencia": 7786.02,
+      "salarioConsiderado": 7551.29,
+      "indice": 1.054843,
+      "salarioCorrigido": 7965.43,
+      "descartado": false
+    },
+    {
+      "competencia": "09/2024",
+      "dias": 30,
+      "salarioContribuicao": 7696.67,
+      "tetoCompetencia": 7786.02,
+      "salarioConsiderado": 7696.67,
+      "indice": 1.056322,
+      "salarioCorrigido": 8130.17,
+      "descartado": false
+    },
+    {
+      "competencia": "10/2024",
+      "dias": 30,
+      "salarioContribuicao": 7696.67,
+      "tetoCompetencia": 7786.02,
+      "salarioConsiderado": 7696.67,
+      "indice": 1.051276,
+      "salarioCorrigido": 8091.33,
+      "descartado": false
+    },
+    {
+      "competencia": "11/2024",
+      "dias": 30,
+      "salarioContribuicao": 7696.67,
+      "tetoCompetencia": 7786.02,
+      "salarioConsiderado": 7696.67,
+      "indice": 1.044902,
+      "salarioCorrigido": 8042.27,
+      "descartado": false
+    },
+    {
+      "competencia": "12/2024",
+      "dias": 30,
+      "salarioContribuicao": 7696.67,
+      "tetoCompetencia": 7786.02,
+      "salarioConsiderado": 7696.67,
+      "indice": 1.041465,
+      "salarioCorrigido": 8015.82,
+      "descartado": false
+    },
+    {
+      "competencia": "01/2025",
+      "dias": 30,
+      "salarioContribuicao": 8789.48,
+      "tetoCompetencia": 8157.41,
+      "salarioConsiderado": 8157.41,
+      "indice": 1.03649,
+      "salarioCorrigido": 8455.08,
+      "descartado": false
+    },
+    {
+      "competencia": "02/2025",
+      "dias": 30,
+      "salarioContribuicao": 8753.28,
+      "tetoCompetencia": 8157.41,
+      "salarioConsiderado": 8157.41,
+      "indice": 1.03649,
+      "salarioCorrigido": 8455.08,
+      "descartado": false
+    },
+    {
+      "competencia": "03/2025",
+      "dias": 30,
+      "salarioContribuicao": 7842.21,
+      "tetoCompetencia": 8157.41,
+      "salarioConsiderado": 7842.21,
+      "indice": 1.021374,
+      "salarioCorrigido": 8009.83,
+      "descartado": false
+    },
+    {
+      "competencia": "04/2025",
+      "dias": 30,
+      "salarioContribuicao": 7842.21,
+      "tetoCompetencia": 8157.41,
+      "salarioConsiderado": 7842.21,
+      "indice": 1.016191,
+      "salarioCorrigido": 7969.19,
+      "descartado": false
+    },
+    {
+      "competencia": "05/2025",
+      "dias": 30,
+      "salarioContribuicao": 7842.21,
+      "tetoCompetencia": 8157.41,
+      "salarioConsiderado": 7842.21,
+      "indice": 1.011337,
+      "salarioCorrigido": 7931.12,
+      "descartado": false
+    },
+    {
+      "competencia": "06/2025",
+      "dias": 30,
+      "salarioContribuicao": 7842.21,
+      "tetoCompetencia": 8157.41,
+      "salarioConsiderado": 7842.21,
+      "indice": 1.007809,
+      "salarioCorrigido": 7903.46,
+      "descartado": false
+    },
+    {
+      "competencia": "07/2025",
+      "dias": 30,
+      "salarioContribuicao": 7842.21,
+      "tetoCompetencia": 8157.41,
+      "salarioConsiderado": 7842.21,
+      "indice": 1.005497,
+      "salarioCorrigido": 7885.32,
+      "descartado": false
+    },
+    {
+      "competencia": "08/2025",
+      "dias": 30,
+      "salarioContribuicao": 9202.46,
+      "tetoCompetencia": 8157.41,
+      "salarioConsiderado": 8157.41,
+      "indice": 1.00339,
+      "salarioCorrigido": 8185.06,
+      "descartado": false
+    },
+    {
+      "competencia": "09/2025",
+      "dias": 30,
+      "salarioContribuicao": 9202.46,
+      "tetoCompetencia": 8157.41,
+      "salarioConsiderado": 8157.41,
+      "indice": 1.005501,
+      "salarioCorrigido": 8202.29,
+      "descartado": false
+    },
+    {
+      "competencia": "10/2025",
+      "dias": 30,
+      "salarioContribuicao": 9202.46,
+      "tetoCompetencia": 8157.41,
+      "salarioConsiderado": 8157.41,
+      "indice": 1.0003,
+      "salarioCorrigido": 8159.86,
+      "descartado": false
+    },
+    {
+      "competencia": "11/2025",
+      "dias": 30,
+      "salarioContribuicao": 8157.41,
+      "tetoCompetencia": 8157.41,
+      "salarioConsiderado": 8157.41,
+      "indice": 1.0,
+      "salarioCorrigido": 8157.41,
+      "descartado": false
+    },
+    {
+      "competencia": "12/2025",
+      "dias": 30,
+      "salarioContribuicao": 8157.41,
+      "tetoCompetencia": 8157.41,
+      "salarioConsiderado": 8157.41,
+      "indice": 1.0,
+      "salarioCorrigido": 8157.41,
+      "descartado": false
+    },
+    {
+      "competencia": "01/2026",
+      "dias": 30,
+      "salarioContribuicao": 8157.41,
+      "tetoCompetencia": 8157.41,
+      "salarioConsiderado": 8157.41,
+      "indice": 1.0,
+      "salarioCorrigido": 8157.41,
+      "descartado": false
+    },
+    {
+      "competencia": "02/2026",
+      "dias": 30,
+      "salarioContribuicao": 8157.41,
+      "tetoCompetencia": 8157.41,
+      "salarioConsiderado": 8157.41,
+      "indice": 1.0,
+      "salarioCorrigido": 8157.41,
+      "descartado": false
+    },
+    {
+      "competencia": "03/2026",
+      "dias": 30,
+      "salarioContribuicao": 8157.41,
+      "tetoCompetencia": 8157.41,
+      "salarioConsiderado": 8157.41,
+      "indice": 1.0,
+      "salarioCorrigido": 8157.41,
+      "descartado": false
+    },
+    {
+      "competencia": "04/2026",
+      "dias": 30,
+      "salarioContribuicao": 8157.41,
+      "tetoCompetencia": 8157.41,
+      "salarioConsiderado": 8157.41,
+      "indice": 1.0,
+      "salarioCorrigido": 8157.41,
+      "descartado": false
+    },
+    {
+      "competencia": "05/2026",
+      "dias": 30,
+      "salarioContribuicao": 8157.41,
+      "tetoCompetencia": 8157.41,
+      "salarioConsiderado": 8157.41,
+      "indice": 1.0,
+      "salarioCorrigido": 8157.41,
+      "descartado": false
+    },
+    {
+      "competencia": "06/2026",
+      "dias": 30,
+      "salarioContribuicao": 8157.41,
+      "tetoCompetencia": 8157.41,
+      "salarioConsiderado": 8157.41,
+      "indice": 1.0,
+      "salarioCorrigido": 8157.41,
+      "descartado": false
+    },
+    {
+      "competencia": "07/2026",
+      "dias": 30,
+      "salarioContribuicao": 8157.41,
+      "tetoCompetencia": 8157.41,
+      "salarioConsiderado": 8157.41,
+      "indice": 1.0,
+      "salarioCorrigido": 8157.41,
+      "descartado": false
+    },
+    {
+      "competencia": "08/2026",
+      "dias": 30,
+      "salarioContribuicao": 8157.41,
+      "tetoCompetencia": 8157.41,
+      "salarioConsiderado": 8157.41,
+      "indice": 1.0,
+      "salarioCorrigido": 8157.41,
+      "descartado": false
+    },
+    {
+      "competencia": "09/2026",
+      "dias": 30,
+      "salarioContribuicao": 8157.41,
+      "tetoCompetencia": 8157.41,
+      "salarioConsiderado": 8157.41,
+      "indice": 1.0,
+      "salarioCorrigido": 8157.41,
+      "descartado": false
+    },
+    {
+      "competencia": "10/2026",
+      "dias": 30,
+      "salarioContribuicao": 8157.41,
+      "tetoCompetencia": 8157.41,
+      "salarioConsiderado": 8157.41,
+      "indice": 1.0,
+      "salarioCorrigido": 8157.41,
+      "descartado": false
+    },
+    {
+      "competencia": "11/2026",
+      "dias": 30,
+      "salarioContribuicao": 8157.41,
+      "tetoCompetencia": 8157.41,
+      "salarioConsiderado": 8157.41,
+      "indice": 1.0,
+      "salarioCorrigido": 8157.41,
+      "descartado": false
+    },
+    {
+      "competencia": "12/2026",
+      "dias": 30,
+      "salarioContribuicao": 8157.41,
+      "tetoCompetencia": 8157.41,
+      "salarioConsiderado": 8157.41,
+      "indice": 1.0,
+      "salarioCorrigido": 8157.41,
+      "descartado": false
+    },
+    {
+      "competencia": "01/2027",
+      "dias": 30,
+      "salarioContribuicao": 8157.41,
+      "tetoCompetencia": 8157.41,
+      "salarioConsiderado": 8157.41,
+      "indice": 1.0,
+      "salarioCorrigido": 8157.41,
+      "descartado": false
+    },
+    {
+      "competencia": "02/2027",
+      "dias": 30,
+      "salarioContribuicao": 8157.41,
+      "tetoCompetencia": 8157.41,
+      "salarioConsiderado": 8157.41,
+      "indice": 1.0,
+      "salarioCorrigido": 8157.41,
+      "descartado": false
+    },
+    {
+      "competencia": "03/2027",
+      "dias": 30,
+      "salarioContribuicao": 8157.41,
+      "tetoCompetencia": 8157.41,
+      "salarioConsiderado": 8157.41,
+      "indice": 1.0,
+      "salarioCorrigido": 8157.41,
+      "descartado": false
+    },
+    {
+      "competencia": "04/2027",
+      "dias": 30,
+      "salarioContribuicao": 8157.41,
+      "tetoCompetencia": 8157.41,
+      "salarioConsiderado": 8157.41,
+      "indice": 1.0,
+      "salarioCorrigido": 8157.41,
+      "descartado": false
+    },
+    {
+      "competencia": "05/2027",
+      "dias": 30,
+      "salarioContribuicao": 8157.41,
+      "tetoCompetencia": 8157.41,
+      "salarioConsiderado": 8157.41,
+      "indice": 1.0,
+      "salarioCorrigido": 8157.41,
+      "descartado": false
+    },
+    {
+      "competencia": "06/2027",
+      "dias": 30,
+      "salarioContribuicao": 8157.41,
+      "tetoCompetencia": 8157.41,
+      "salarioConsiderado": 8157.41,
+      "indice": 1.0,
+      "salarioCorrigido": 8157.41,
+      "descartado": false
+    },
+    {
+      "competencia": "07/2027",
+      "dias": 30,
+      "salarioContribuicao": 8157.41,
+      "tetoCompetencia": 8157.41,
+      "salarioConsiderado": 8157.41,
+      "indice": 1.0,
+      "salarioCorrigido": 8157.41,
+      "descartado": false
+    },
+    {
+      "competencia": "08/2027",
+      "dias": 30,
+      "salarioContribuicao": 8157.41,
+      "tetoCompetencia": 8157.41,
+      "salarioConsiderado": 8157.41,
+      "indice": 1.0,
+      "salarioCorrigido": 8157.41,
+      "descartado": false
+    },
+    {
+      "competencia": "09/2027",
+      "dias": 30,
+      "salarioContribuicao": 8157.41,
+      "tetoCompetencia": 8157.41,
+      "salarioConsiderado": 8157.41,
+      "indice": 1.0,
+      "salarioCorrigido": 8157.41,
+      "descartado": false
+    },
+    {
+      "competencia": "10/2027",
+      "dias": 30,
+      "salarioContribuicao": 8157.41,
+      "tetoCompetencia": 8157.41,
+      "salarioConsiderado": 8157.41,
+      "indice": 1.0,
+      "salarioCorrigido": 8157.41,
+      "descartado": false
+    },
+    {
+      "competencia": "11/2027",
+      "dias": 30,
+      "salarioContribuicao": 8157.41,
+      "tetoCompetencia": 8157.41,
+      "salarioConsiderado": 8157.41,
+      "indice": 1.0,
+      "salarioCorrigido": 8157.41,
+      "descartado": false
+    },
+    {
+      "competencia": "12/2027",
+      "dias": 30,
+      "salarioContribuicao": 8157.41,
+      "tetoCompetencia": 8157.41,
+      "salarioConsiderado": 8157.41,
+      "indice": 1.0,
+      "salarioCorrigido": 8157.41,
+      "descartado": false
+    },
+    {
+      "competencia": "01/2028",
+      "dias": 30,
+      "salarioContribuicao": 8157.41,
+      "tetoCompetencia": 8157.41,
+      "salarioConsiderado": 8157.41,
+      "indice": 1.0,
+      "salarioCorrigido": 8157.41,
+      "descartado": false
+    },
+    {
+      "competencia": "02/2028",
+      "dias": 30,
+      "salarioContribuicao": 8157.41,
+      "tetoCompetencia": 8157.41,
+      "salarioConsiderado": 8157.41,
+      "indice": 1.0,
+      "salarioCorrigido": 8157.41,
+      "descartado": false
+    },
+    {
+      "competencia": "03/2028",
+      "dias": 30,
+      "salarioContribuicao": 8157.41,
+      "tetoCompetencia": 8157.41,
+      "salarioConsiderado": 8157.41,
+      "indice": 1.0,
+      "salarioCorrigido": 8157.41,
+      "descartado": false
+    },
+    {
+      "competencia": "04/2028",
+      "dias": 30,
+      "salarioContribuicao": 8157.41,
+      "tetoCompetencia": 8157.41,
+      "salarioConsiderado": 8157.41,
+      "indice": 1.0,
+      "salarioCorrigido": 8157.41,
+      "descartado": false
+    },
+    {
+      "competencia": "05/2028",
+      "dias": 30,
+      "salarioContribuicao": 8157.41,
+      "tetoCompetencia": 8157.41,
+      "salarioConsiderado": 8157.41,
+      "indice": 1.0,
+      "salarioCorrigido": 8157.41,
+      "descartado": false
+    },
+    {
+      "competencia": "06/2028",
+      "dias": 30,
+      "salarioContribuicao": 8157.41,
+      "tetoCompetencia": 8157.41,
+      "salarioConsiderado": 8157.41,
+      "indice": 1.0,
+      "salarioCorrigido": 8157.41,
+      "descartado": false
+    },
+    {
+      "competencia": "07/2028",
+      "dias": 30,
+      "salarioContribuicao": 8157.41,
+      "tetoCompetencia": 8157.41,
+      "salarioConsiderado": 8157.41,
+      "indice": 1.0,
+      "salarioCorrigido": 8157.41,
+      "descartado": false
+    },
+    {
+      "competencia": "08/2028",
+      "dias": 30,
+      "salarioContribuicao": 8157.41,
+      "tetoCompetencia": 8157.41,
+      "salarioConsiderado": 8157.41,
+      "indice": 1.0,
+      "salarioCorrigido": 8157.41,
+      "descartado": false
+    },
+    {
+      "competencia": "09/2028",
+      "dias": 30,
+      "salarioContribuicao": 8157.41,
+      "tetoCompetencia": 8157.41,
+      "salarioConsiderado": 8157.41,
+      "indice": 1.0,
+      "salarioCorrigido": 8157.41,
+      "descartado": false
+    },
+    {
+      "competencia": "10/2028",
+      "dias": 30,
+      "salarioContribuicao": 8157.41,
+      "tetoCompetencia": 8157.41,
+      "salarioConsiderado": 8157.41,
+      "indice": 1.0,
+      "salarioCorrigido": 8157.41,
+      "descartado": false
+    },
+    {
+      "competencia": "11/2028",
+      "dias": 30,
+      "salarioContribuicao": 8157.41,
+      "tetoCompetencia": 8157.41,
+      "salarioConsiderado": 8157.41,
+      "indice": 1.0,
+      "salarioCorrigido": 8157.41,
+      "descartado": false
+    },
+    {
+      "competencia": "12/2028",
+      "dias": 30,
+      "salarioContribuicao": 8157.41,
+      "tetoCompetencia": 8157.41,
+      "salarioConsiderado": 8157.41,
+      "indice": 1.0,
+      "salarioCorrigido": 8157.41,
+      "descartado": false
+    },
+    {
+      "competencia": "01/2029",
+      "dias": 30,
+      "salarioContribuicao": 8157.41,
+      "tetoCompetencia": 8157.41,
+      "salarioConsiderado": 8157.41,
+      "indice": 1.0,
+      "salarioCorrigido": 8157.41,
+      "descartado": false
+    }
+  ],
+  "esperado": {
+    "parcelasPBC": 211,
+    "idadeNaDIB": 65.0,
+    "tempoContribuicaoAnos": 16.0166,
+    "somaSalarios": 1421252.72,
+    "salarioBeneficio": 7559.85,
+    "media": 7559.85,
+    "coeficiente": 0.62,
+    "rmi": 4687.1,
+    "limitadaAoMinimo": false,
+    "descartes": 23
+  }
+}

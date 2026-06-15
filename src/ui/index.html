@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Planejador Previdenciário RGPS — Protótipo</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header>
+  <h1>Planejador Previdenciário — RGPS</h1>
+  <span class="badge">PROTÓTIPO — uso interno, requer conferência do advogado</span>
+</header>
+<main>
+
+<section>
+  <h2>0. Importar CNIS (PDF do Meu INSS) — opcional</h2>
+  <p class="hint">Selecione o PDF do Extrato Previdenciário (tipo "Vínculos, contribuições e remunerações"). Preenche nascimento, períodos e salários automaticamente. Requer internet na primeira leitura; funciona com o PDF digital (não digitalizado).</p>
+  <div class="toolbar">
+    <button class="sec" onclick="document.getElementById('cnisfile').click()">Carregar CNIS (PDF)</button>
+    <input type="file" id="cnisfile" accept=".pdf" style="display:none" onchange="importarCNIS(this)">
+  </div>
+  <div id="cnisStatus" class="hint" style="margin-top:8px"></div>
+</section>
+
+<section>
+  <h2>1. Dados do caso</h2>
+  <div class="row">
+    <div style="flex:2"><label>Nome do(a) segurado(a)</label><input type="text" id="nome" placeholder="Nome completo"></div>
+    <div><label>Sexo</label><select id="sexo"><option value="M">Masculino</option><option value="F">Feminino</option></select></div>
+    <div><label>Nascimento (dd/mm/aaaa)</label><input type="text" id="nasc" placeholder="01/01/1965"></div>
+    <div><label>Data-base da análise</label><input type="text" id="hoje"></div>
+  </div>
+  <div class="toolbar">
+    <label style="display:flex;align-items:center;gap:6px;font-size:12.5px;color:#333;margin:0">
+      <input type="checkbox" id="continua" checked> Considerar que o(a) segurado(a) continuará contribuindo sem interrupção
+    </label>
+  </div>
+</section>
+
+<section>
+  <h2>2. Períodos de contribuição (do CNIS)</h2>
+  <p class="hint">Cole um período por linha: <b>data início, data fim e descrição</b> (opcional). Ex.: <code>01/03/1989 31/05/1995 Estado de SP - CLT</code>. Sobreposições (concomitância) são unificadas automaticamente.</p>
+  <textarea id="periodos" rows="8" placeholder="01/02/1985 30/06/1992 Empresa A&#10;01/08/1992 15/03/2005 Empresa B&#10;01/04/2005 10/06/2026 Contribuinte individual"></textarea>
+</section>
+
+<section>
+  <h2>3. Salários de contribuição (opcional — necessário para RMI)</h2>
+  <p class="hint">Cole uma competência por linha: <b>mm/aaaa valor</b>, com os valores <b>já atualizados monetariamente</b>. Ex.: <code>07/1994 3.250,00</code></p>
+  <textarea id="salarios" rows="6" placeholder="07/1994 2.500,00&#10;08/1994 2.500,00&#10;..."></textarea>
+</section>
+
+<details><summary>Parâmetros do sistema (2026) — clique para editar</summary>
+<section style="margin-top:8px">
+  <div class="row">
+    <div><label>Teto do RGPS (R$)</label><input type="text" id="pteto" value="8475,55"></div>
+    <div><label>Salário mínimo (R$)</label><input type="text" id="psalmin" value="1621,00"></div>
+    <div><label>Divisor mínimo (Lei 14.331/22)</label><input type="text" id="pdivmin" value="108"></div>
+  </div>
+  <h3>Tábua de mortalidade — expectativa de sobrevida (IBGE)</h3>
+  <p class="hint">Formato: <code>idade=anos</code>, separados por vírgula. Confira com a tábua oficial vigente antes de usar em parecer.</p>
+  <textarea id="ptabua" rows="3">45=34.6,46=33.7,47=32.9,48=32.0,49=31.2,50=30.4,51=29.6,52=28.8,53=28.0,54=27.2,55=26.4,56=25.6,57=24.9,58=24.1,59=23.3,60=22.6,61=21.8,62=21.1,63=20.4,64=19.6,65=18.9,66=18.2,67=17.5,68=16.9,69=16.2,70=15.5,71=14.9,72=14.3,73=13.7,74=13.1,75=12.5</textarea>
+</section>
+</details>
+
+<div class="toolbar" style="margin:14px 0">
+  <button onclick="analisar()">Analisar caso</button>
+  <button class="sec" onclick="salvarCaso()">Salvar caso</button>
+  <select id="casosSalvos" onchange="abrirCaso(this.value)" style="max-width:260px"><option value="">Abrir caso salvo...</option></select>
+  <button class="sec" onclick="exportarJSON()">Exportar dados</button>
+  <button class="sec" onclick="document.getElementById('impfile').click()">Importar dados</button>
+  <input type="file" id="impfile" accept=".json" style="display:none" onchange="importarJSON(this)">
+</div>
+<div id="msg"></div>
+
+<section id="resultado" style="display:none">
+  <h2>Resultado da análise</h2>
+  <div class="cards" id="cardsTempo"></div>
+  <h3>Enquadramento nas regras</h3>
+  <table id="tabRegras"><thead><tr><th style="width:24%">Regra</th><th style="width:11%">Situação</th><th style="width:11%">Data</th><th>Detalhamento</th><th style="width:12%">RMI estimada</th></tr></thead><tbody></tbody></table>
+  <div class="toolbar"><button onclick="gerarMinuta()">Gerar minuta do parecer</button></div>
+</section>
+
+<section id="secMinuta" style="display:none">
+  <h2>Minuta do parecer (rascunho para revisão)</h2>
+  <textarea id="minuta"></textarea>
+  <div class="toolbar"><button onclick="baixarDoc()">Baixar como Word (.doc)</button></div>
+</section>
+
+</main>
+<footer>Protótipo de validação — os resultados são estimativas e NÃO substituem a conferência do advogado. Dados ficam apenas neste navegador (localStorage).</footer>
+
+<script src="../core/calculation-engine.js"></script>
+<script src="../core/cnis-parser.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

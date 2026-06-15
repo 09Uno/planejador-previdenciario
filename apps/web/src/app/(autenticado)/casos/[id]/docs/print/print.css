@@ -1,0 +1,128 @@
+/* Estilos para views imprimíveis — Doc 1.0/X.0/X.1 */
+.doc-print {
+  font-family: 'Segoe UI', Arial, sans-serif;
+  font-size: 11pt;
+  color: #000;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.doc-print .doc-header {
+  text-align: center;
+  border-bottom: 2px solid #1F3864;
+  padding-bottom: 12px;
+  margin-bottom: 20px;
+}
+
+.doc-print .doc-header h1 {
+  font-size: 14pt;
+  color: #1F3864;
+  margin-bottom: 4px;
+}
+
+.doc-print .doc-header h2 {
+  font-size: 12pt;
+  color: #333;
+  font-weight: normal;
+}
+
+.doc-print .doc-info {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4px 20px;
+  margin-bottom: 16px;
+  font-size: 10pt;
+}
+
+.doc-print .doc-info dt { font-weight: bold; color: #333; }
+.doc-print .doc-info dd { margin: 0; }
+
+.doc-print table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 9pt;
+  margin-bottom: 16px;
+}
+
+.doc-print th {
+  background: #1F3864;
+  color: #fff;
+  padding: 6px 8px;
+  text-align: left;
+  font-size: 9pt;
+}
+
+.doc-print td {
+  padding: 4px 8px;
+  border-bottom: 1px solid #ddd;
+}
+
+.doc-print tr:nth-child(even) td { background: #f9f9f9; }
+
+.doc-print .doc-section {
+  margin-top: 20px;
+  margin-bottom: 12px;
+}
+
+.doc-print .doc-section h3 {
+  font-size: 11pt;
+  color: #1F3864;
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 4px;
+  margin-bottom: 8px;
+}
+
+.doc-print .analise-quadro {
+  border: 1px solid #ccc;
+  padding: 12px;
+  margin-bottom: 12px;
+  background: #fafafa;
+}
+
+.doc-print .analise-quadro dt { font-weight: bold; display: inline; }
+.doc-print .analise-quadro dd { display: inline; margin: 0 16px 0 4px; }
+
+.doc-print .descartado td { text-decoration: line-through; color: #999; }
+.doc-print .marca-d { color: #dc2626; font-weight: bold; }
+
+.doc-print .calculo-bloco {
+  border: 2px solid #1F3864;
+  padding: 16px;
+  margin: 16px 0;
+  background: #f0f4fa;
+}
+
+.doc-print .calculo-bloco dt { font-weight: bold; }
+.doc-print .calculo-bloco .rmi-final {
+  font-size: 14pt;
+  font-weight: bold;
+  color: #1F3864;
+}
+
+.doc-print .marca-dagua {
+  position: fixed;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(-30deg);
+  font-size: 72pt;
+  color: rgba(200, 200, 200, 0.25);
+  pointer-events: none;
+  z-index: 0;
+  font-weight: bold;
+}
+
+.doc-print .rodape {
+  margin-top: 30px;
+  padding-top: 8px;
+  border-top: 1px solid #ccc;
+  font-size: 8pt;
+  color: #666;
+  text-align: center;
+}
+
+@media print {
+  body { margin: 0; padding: 0; }
+  .doc-print { max-width: none; padding: 0; }
+  .no-print { display: none !important; }
+}

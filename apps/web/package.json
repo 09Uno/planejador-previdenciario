@@ -1,0 +1,40 @@
+{
+  "name": "@mfaa/web",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "postinstall": "node -e \"require('fs').cpSync(require.resolve('pdfjs-dist/build/pdf.worker.min.mjs'), 'public/pdf.worker.min.mjs')\"",
+    "predev": "npm run build --workspace=@mfaa/prev-engine",
+    "prebuild": "npm run build --workspace=@mfaa/prev-engine",
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint:no-dup-engine": "node scripts/check-engine-dup.mjs"
+  },
+  "dependencies": {
+    "@mfaa/doc-gen": "*",
+    "@mfaa/prev-engine": "*",
+    "@prisma/client": "^6.9.0",
+    "bcryptjs": "^2.4.3",
+    "exceljs": "^4.4.0",
+    "jose": "^6.0.11",
+    "next": "^15.3.3",
+    "pdfjs-dist": "^6.0.227",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0",
+    "tesseract.js": "^7.0.0"
+  },
+  "prisma": {
+    "seed": "npx tsx prisma/seed.ts"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.60.0",
+    "@types/bcryptjs": "^2.4.6",
+    "@types/node": "^22.15.0",
+    "@types/react": "^19.1.0",
+    "@types/react-dom": "^19.1.0",
+    "prisma": "^6.9.0",
+    "tsx": "^4.22.4",
+    "typescript": "^5.5.0"
+  }
+}

@@ -1,0 +1,1025 @@
+{
+  "descricao": "Dados de contagem de tempo de contribuição e elegibilidade extraídos dos documentos de planejamento previdenciário (docs 1.0/5.0 e seções X.0 dos cálculos) e dos resumos de pré-análise (andamentos). Valores transcritos literalmente dos documentos.",
+  "gerado_em": "2026-06-11",
+  "casos": {
+    "dulcimara": {
+      "segurado": {
+        "nome": "DULCIMARA RODRIGUES DOS SANTOS",
+        "sexo": "F",
+        "nascimento": "15/02/1971"
+      },
+      "contagem_anterior_ec103": {
+        "arquivo": "Modelos.Docts.Planejamento.Previdenciario__Dulcimara Rodrigues__20260119-contagem-tc.anterior.ec.doc.1.0.txt",
+        "periodos_informados": [
+          {
+            "inicio": "01/08/1986",
+            "fim": "18/12/1987",
+            "tipo": "Normal",
+            "empresa": "JUSTINO GODOY ORGANIZACAO CONTABIL"
+          },
+          {
+            "inicio": "02/05/1988",
+            "fim": "12/05/1989",
+            "tipo": "Normal",
+            "empresa": "ESCRITORIO CONTABIL AGENDA LTDA"
+          },
+          {
+            "inicio": "26/07/1989",
+            "fim": "01/02/1991",
+            "tipo": "Normal",
+            "empresa": "BAUDUCCO & CIA LTDA"
+          },
+          {
+            "inicio": "07/11/2011",
+            "fim": "09/05/2014",
+            "tipo": "Normal",
+            "empresa": "MERCADOCAR MERCANTIL DE PECAS LTDA"
+          },
+          {
+            "inicio": "01/12/2014",
+            "fim": "08/03/2018",
+            "tipo": "Normal",
+            "empresa": "OUTBACK STEAKHOUSE RESTAURANTES 110837"
+          },
+          {
+            "inicio": "09/10/2018",
+            "fim": "11/07/2019",
+            "tipo": "Normal",
+            "empresa": "PHSR GESTAO DE RESTAURANTES LTDA"
+          }
+        ],
+        "tc_total_periodos_considerados": {
+          "anos": 10,
+          "meses": 5,
+          "dias": 19
+        },
+        "analise": {
+          "titulo": "Tempo de Contribuição até 12/11/2019 - anterior à EC103/2019 - Doc.1.0",
+          "tc_em_16_12_1998": "3 anos, 11 meses e 5 dias",
+          "tc_em_29_11_1999": "3 anos, 11 meses e 5 dias",
+          "tc_em_12_11_2019": "10 anos, 5 meses e 19 dias",
+          "carencia_em_12_11_2019": "131 contribuições",
+          "idade_em_12_11_2019": "48 anos, 8 meses e 27 dias",
+          "pontos_em_12_11_2019": "59 pontos (não possui o tempo mínimo de contribuição)",
+          "possivel_aposentadoria_por_idade": "15/02/2031 (60 anos)"
+        }
+      },
+      "cenarios_calculo": [
+        {
+          "doc": "2.0",
+          "arquivo": "Modelos.Docts.Planejamento.Previdenciario__Dulcimara Rodrigues__20260119-calc.transicao.art.18.ec.(62anos).sem.parar.e.cada.6.meses.sobre.sal.min.doc.2.0.doc.2.1.txt",
+          "dib": "15/02/2033",
+          "periodos_informados": [
+            {
+              "inicio": "01/08/1986",
+              "fim": "18/12/1987",
+              "tipo": "Normal",
+              "empresa": "JUSTINO GODOY ORGANIZACAO CONTABIL"
+            },
+            {
+              "inicio": "02/05/1988",
+              "fim": "12/05/1989",
+              "tipo": "Normal",
+              "empresa": "ESCRITORIO CONTABIL AGENDA LTDA"
+            },
+            {
+              "inicio": "26/07/1989",
+              "fim": "01/02/1991",
+              "tipo": "Normal",
+              "empresa": "BAUDUCCO & CIA LTDA"
+            },
+            {
+              "inicio": "07/11/2011",
+              "fim": "09/05/2014",
+              "tipo": "Normal",
+              "empresa": "MERCADOCAR MERCANTIL DE PECAS LTDA"
+            },
+            {
+              "inicio": "01/12/2014",
+              "fim": "08/03/2018",
+              "tipo": "Normal",
+              "empresa": "OUTBACK STEAKHOUSE RESTAURANTES 110837"
+            },
+            {
+              "inicio": "09/10/2018",
+              "fim": "11/07/2019",
+              "tipo": "Normal",
+              "empresa": "PHSR GESTAO DE RESTAURANTES LTDA"
+            },
+            {
+              "inicio": "01/01/2026",
+              "fim": "31/07/2030",
+              "tipo": "Normal",
+              "empresa": "a recolher sem parar"
+            },
+            {
+              "inicio": "01/01/2031",
+              "fim": "31/01/2031",
+              "tipo": "Normal",
+              "empresa": "a recolher a cada 6 meses"
+            },
+            {
+              "inicio": "01/07/2031",
+              "fim": "31/07/2031",
+              "tipo": "Normal",
+              "empresa": "a recolher a cada 6 meses"
+            },
+            {
+              "inicio": "01/01/2032",
+              "fim": "31/01/2032",
+              "tipo": "Normal",
+              "empresa": "a recolher a cada 6 meses"
+            },
+            {
+              "inicio": "01/07/2032",
+              "fim": "31/07/2032",
+              "tipo": "Normal",
+              "empresa": "a recolher a cada 6 meses"
+            },
+            {
+              "inicio": "01/01/2033",
+              "fim": "31/01/2033",
+              "tipo": "Normal",
+              "empresa": "a recolher a cada 6 meses"
+            }
+          ],
+          "tc_total_periodos_considerados": {
+            "anos": 15,
+            "meses": 5,
+            "dias": 19
+          },
+          "tc_em_13_11_2019": "10 anos, 5 meses e 19 dias",
+          "carencia_em_11_2019": "131 contribuições",
+          "tc_na_dib": "15 anos, 5 meses e 19 dias",
+          "carencia_na_dib": "191 contribuições"
+        },
+        {
+          "doc": "3.0",
+          "arquivo": "Modelos.Docts.Planejamento.Previdenciario__Dulcimara Rodrigues__20260119-calc.transicao.art.18.ec.(62anos).sem.parar.sobre.sal.min.doc.3.0.doc.3.1.txt",
+          "dib": "15/02/2033",
+          "periodos_informados": [
+            {
+              "inicio": "01/08/1986",
+              "fim": "18/12/1987",
+              "tipo": "Normal",
+              "empresa": "JUSTINO GODOY ORGANIZACAO CONTABIL"
+            },
+            {
+              "inicio": "02/05/1988",
+              "fim": "12/05/1989",
+              "tipo": "Normal",
+              "empresa": "ESCRITORIO CONTABIL AGENDA LTDA"
+            },
+            {
+              "inicio": "26/07/1989",
+              "fim": "01/02/1991",
+              "tipo": "Normal",
+              "empresa": "BAUDUCCO & CIA LTDA"
+            },
+            {
+              "inicio": "07/11/2011",
+              "fim": "09/05/2014",
+              "tipo": "Normal",
+              "empresa": "MERCADOCAR MERCANTIL DE PECAS LTDA"
+            },
+            {
+              "inicio": "01/12/2014",
+              "fim": "08/03/2018",
+              "tipo": "Normal",
+              "empresa": "OUTBACK STEAKHOUSE RESTAURANTES 110837"
+            },
+            {
+              "inicio": "09/10/2018",
+              "fim": "11/07/2019",
+              "tipo": "Normal",
+              "empresa": "PHSR GESTAO DE RESTAURANTES LTDA"
+            },
+            {
+              "inicio": "01/01/2026",
+              "fim": "15/02/2033",
+              "tipo": "Normal",
+              "empresa": "a recolher sem parar"
+            }
+          ],
+          "tc_total_periodos_considerados": {
+            "anos": 17,
+            "meses": 7,
+            "dias": 4
+          },
+          "tc_em_13_11_2019": "10 anos, 5 meses e 19 dias",
+          "carencia_em_11_2019": "131 contribuições",
+          "tc_na_dib": "17 anos, 7 meses e 4 dias",
+          "carencia_na_dib": "217 contribuições"
+        },
+        {
+          "doc": "4.0",
+          "arquivo": "Modelos.Docts.Planejamento.Previdenciario__Dulcimara Rodrigues__20260119-calc.transicao.art.18.ec.(65anos).sem.parar.sobre.teto.doc.4.0.doc.4.1.txt",
+          "dib": "15/02/2036",
+          "periodos_informados": [
+            {
+              "inicio": "01/08/1986",
+              "fim": "18/12/1987",
+              "tipo": "Normal",
+              "empresa": "JUSTINO GODOY ORGANIZACAO CONTABIL"
+            },
+            {
+              "inicio": "02/05/1988",
+              "fim": "12/05/1989",
+              "tipo": "Normal",
+              "empresa": "ESCRITORIO CONTABIL AGENDA LTDA"
+            },
+            {
+              "inicio": "26/07/1989",
+              "fim": "01/02/1991",
+              "tipo": "Normal",
+              "empresa": "BAUDUCCO & CIA LTDA"
+            },
+            {
+              "inicio": "07/11/2011",
+              "fim": "09/05/2014",
+              "tipo": "Normal",
+              "empresa": "MERCADOCAR MERCANTIL DE PECAS LTDA"
+            },
+            {
+              "inicio": "01/12/2014",
+              "fim": "08/03/2018",
+              "tipo": "Normal",
+              "empresa": "OUTBACK STEAKHOUSE RESTAURANTES 110837"
+            },
+            {
+              "inicio": "09/10/2018",
+              "fim": "11/07/2019",
+              "tipo": "Normal",
+              "empresa": "PHSR GESTAO DE RESTAURANTES LTDA"
+            },
+            {
+              "inicio": "01/01/2026",
+              "fim": "15/02/2036",
+              "tipo": "Normal",
+              "empresa": "a recolher sem parar"
+            }
+          ],
+          "tc_total_periodos_considerados": {
+            "anos": 20,
+            "meses": 7,
+            "dias": 4
+          },
+          "tc_em_13_11_2019": "10 anos, 5 meses e 19 dias",
+          "carencia_em_11_2019": "131 contribuições",
+          "tc_na_dib": "20 anos, 7 meses e 4 dias",
+          "carencia_na_dib": "253 contribuições"
+        }
+      ],
+      "resumo_pre_analise": {
+        "arquivo": "Modelos.Docts.Planejamento.Previdenciario__Dulcimara Rodrigues__resumo.atendimento.pre.analise.dulcimara.txt",
+        "data_pre_analise": "18/11/2025",
+        "tc_em_13_11_2019": "10A / 05M / 19D",
+        "tc_atual": "10A / 05M / 19D",
+        "idade_na_pre_analise": "54A / 09M / 03D",
+        "premissa": "Voltando a realizar os recolhimentos a partir da competência 11/2025",
+        "regras_projetadas": {
+          "art_18_idade": "15/02/2033",
+          "art_16_idade_minima_progressiva": "11/05/2045",
+          "art_15_pontos": "11/05/2045",
+          "art_20_pedagio_100": "22/11/2064"
+        }
+      }
+    },
+    "gian_carlo": {
+      "segurado": {
+        "nome": "GIAN CARLO CILENTO FILHO",
+        "sexo": "M",
+        "nascimento": "08/06/1966"
+      },
+      "contagem_anterior_ec103": {
+        "arquivo": "Modelos.Docts.Planejamento.Previdenciario__Gian Carlo Cilento Filho__20251209-contagem-tc.anterior.ec.doc.1.0.txt",
+        "periodos_informados": [
+          {
+            "inicio": "01/06/1995",
+            "fim": "31/12/1997",
+            "tipo": "Normal",
+            "empresa": "EMPRESÁRIO / EMPREGADOR | empresário"
+          },
+          {
+            "inicio": "01/01/1998",
+            "fim": "28/02/1998",
+            "tipo": "Licença",
+            "empresa": "EMPRESÁRIO / EMPREGADOR | Prec-Menor-Min -Desconsiderado"
+          },
+          {
+            "inicio": "01/03/1998",
+            "fim": "30/04/1998",
+            "tipo": "Normal",
+            "empresa": "EMPRESÁRIO / EMPREGADOR | empresário"
+          },
+          {
+            "inicio": "01/06/1998",
+            "fim": "28/02/1999",
+            "tipo": "Normal",
+            "empresa": "EMPRESÁRIO / EMPREGADOR | empresário"
+          },
+          {
+            "inicio": "01/03/1999",
+            "fim": "30/04/1999",
+            "tipo": "Licença",
+            "empresa": "EMPRESÁRIO / EMPREGADOR | Prec-Menor-Min -Desconsiderado"
+          },
+          {
+            "inicio": "01/05/1999",
+            "fim": "30/11/1999",
+            "tipo": "Normal",
+            "empresa": "EMPRESÁRIO / EMPREGADOR | empresário"
+          },
+          {
+            "inicio": "01/12/1999",
+            "fim": "31/12/1999",
+            "tipo": "Normal",
+            "empresa": "RECOLHIMENTO | contribuinte individual"
+          },
+          {
+            "inicio": "01/05/2000",
+            "fim": "31/05/2000",
+            "tipo": "Licença",
+            "empresa": "RECOLHIMENTO | Prec-Menor-Min -Desconsiderado"
+          },
+          {
+            "inicio": "01/02/2002",
+            "fim": "31/08/2002",
+            "tipo": "Normal",
+            "empresa": "RECOLHIMENTO | contribuinte individual"
+          },
+          {
+            "inicio": "01/09/2004",
+            "fim": "31/01/2007",
+            "tipo": "Normal",
+            "empresa": "Pro Ita Corretora Seg. Ltda - Ativa | C.I GFIP prest.serv"
+          },
+          {
+            "inicio": "01/05/2014",
+            "fim": "31/05/2017",
+            "tipo": "Normal",
+            "empresa": "Branco & Cilento Ltda - Baixada | C.I GFIP prest.serv"
+          },
+          {
+            "inicio": "01/09/2018",
+            "fim": "31/12/2018",
+            "tipo": "Normal",
+            "empresa": "RECOLHIMENTO | contribuinte individual"
+          },
+          {
+            "inicio": "01/01/2019",
+            "fim": "31/01/2019",
+            "tipo": "Licença",
+            "empresa": "RECOLHIMENTO | Prec-Menor-Min -Desconsiderado"
+          },
+          {
+            "inicio": "01/02/2019",
+            "fim": "12/11/2019",
+            "tipo": "Normal",
+            "empresa": "RECOLHIMENTO | contribuinte individual"
+          }
+        ],
+        "tc_total_periodos_considerados": {
+          "anos": 11,
+          "meses": 4,
+          "dias": 12
+        },
+        "analise": {
+          "titulo": "Tempo de Contribuição até 12/11/2019 - anterior à EC103/2019 - Doc.1.0",
+          "tc_em_16_12_1998": "3 anos, 3 meses e 15 dias",
+          "tc_em_29_11_1999": "4 anos e 28 dias",
+          "tc_em_12_11_2019": "11 anos, 4 meses e 12 dias",
+          "carencia_em_12_11_2019": "137 contribuições",
+          "idade_em_12_11_2019": "53 anos, 5 meses e 4 dias",
+          "pontos_em_12_11_2019": "64 pontos (não possui o tempo mínimo de contribuição)",
+          "possivel_aposentadoria_por_idade": "08/06/2031 (65 anos)"
+        }
+      },
+      "cenarios_calculo": [
+        {
+          "doc": "2.0",
+          "arquivo": "Modelos.Docts.Planejamento.Previdenciario__Gian Carlo Cilento Filho__20251209-calc-transicao.art18.ec.sobre.sal.min.cada.6.meses.doc.2.0.doc.2.1.txt",
+          "dib": "08/06/2031",
+          "periodos_informados": [
+            {
+              "inicio": "01/06/1995",
+              "fim": "31/12/1997",
+              "tipo": "Normal",
+              "empresa": "EMPRESÁRIO / EMPREGADOR | empresário"
+            },
+            {
+              "inicio": "01/01/1998",
+              "fim": "28/02/1998",
+              "tipo": "Licença",
+              "empresa": "EMPRESÁRIO / EMPREGADOR | Prec-Menor-Min -Desconsiderado"
+            },
+            {
+              "inicio": "01/03/1998",
+              "fim": "30/04/1998",
+              "tipo": "Normal",
+              "empresa": "EMPRESÁRIO / EMPREGADOR | empresário"
+            },
+            {
+              "inicio": "01/06/1998",
+              "fim": "28/02/1999",
+              "tipo": "Normal",
+              "empresa": "EMPRESÁRIO / EMPREGADOR | empresário"
+            },
+            {
+              "inicio": "01/03/1999",
+              "fim": "30/04/1999",
+              "tipo": "Licença",
+              "empresa": "EMPRESÁRIO / EMPREGADOR | Prec-Menor-Min -Desconsiderado"
+            },
+            {
+              "inicio": "01/05/1999",
+              "fim": "30/11/1999",
+              "tipo": "Normal",
+              "empresa": "EMPRESÁRIO / EMPREGADOR | empresário"
+            },
+            {
+              "inicio": "01/12/1999",
+              "fim": "31/12/1999",
+              "tipo": "Normal",
+              "empresa": "RECOLHIMENTO | contribuinte individual"
+            },
+            {
+              "inicio": "01/05/2000",
+              "fim": "31/05/2000",
+              "tipo": "Licença",
+              "empresa": "RECOLHIMENTO | Prec-Menor-Min -Desconsiderado"
+            },
+            {
+              "inicio": "01/02/2002",
+              "fim": "31/08/2002",
+              "tipo": "Normal",
+              "empresa": "RECOLHIMENTO | contribuinte individual"
+            },
+            {
+              "inicio": "01/09/2004",
+              "fim": "31/01/2007",
+              "tipo": "Normal",
+              "empresa": "Pro Ita Corretora Seg. Ltda - Ativa | C.I GFIP prest.serv"
+            },
+            {
+              "inicio": "01/05/2014",
+              "fim": "31/05/2017",
+              "tipo": "Normal",
+              "empresa": "Branco & Cilento Ltda - Baixada | C.I GFIP prest.serv"
+            },
+            {
+              "inicio": "01/09/2018",
+              "fim": "31/12/2018",
+              "tipo": "Normal",
+              "empresa": "RECOLHIMENTO | contribuinte individual"
+            },
+            {
+              "inicio": "01/01/2019",
+              "fim": "31/01/2019",
+              "tipo": "Licença",
+              "empresa": "RECOLHIMENTO | Prec-Menor-Min -Desconsiderado"
+            },
+            {
+              "inicio": "01/02/2019",
+              "fim": "31/10/2025",
+              "tipo": "Normal",
+              "empresa": "RECOLHIMENTO | contribuinte individual"
+            },
+            {
+              "inicio": "01/04/2026",
+              "fim": "30/04/2026",
+              "tipo": "Normal",
+              "empresa": "a recolher a cada 6 meses"
+            },
+            {
+              "inicio": "01/10/2026",
+              "fim": "31/10/2026",
+              "tipo": "Normal",
+              "empresa": "a recolher a cada 6 meses"
+            },
+            {
+              "inicio": "01/04/2027",
+              "fim": "30/04/2027",
+              "tipo": "Normal",
+              "empresa": "a recolher a cada 6 meses"
+            },
+            {
+              "inicio": "01/10/2027",
+              "fim": "31/10/2027",
+              "tipo": "Normal",
+              "empresa": "a recolher a cada 6 meses"
+            },
+            {
+              "inicio": "01/04/2028",
+              "fim": "30/04/2028",
+              "tipo": "Normal",
+              "empresa": "a recolher a cada 6 meses"
+            },
+            {
+              "inicio": "01/10/2028",
+              "fim": "31/10/2028",
+              "tipo": "Normal",
+              "empresa": "a recolher a cada 6 meses"
+            },
+            {
+              "inicio": "01/04/2029",
+              "fim": "30/04/2029",
+              "tipo": "Normal",
+              "empresa": "a recolher a cada 6 meses"
+            },
+            {
+              "inicio": "01/10/2029",
+              "fim": "31/10/2029",
+              "tipo": "Normal",
+              "empresa": "a recolher a cada 6 meses"
+            },
+            {
+              "inicio": "01/04/2030",
+              "fim": "30/04/2030",
+              "tipo": "Normal",
+              "empresa": "a recolher a cada 6 meses"
+            },
+            {
+              "inicio": "01/10/2030",
+              "fim": "31/10/2030",
+              "tipo": "Normal",
+              "empresa": "a recolher a cada 6 meses"
+            },
+            {
+              "inicio": "01/04/2031",
+              "fim": "30/04/2031",
+              "tipo": "Normal",
+              "empresa": "a recolher a cada 6 meses"
+            }
+          ],
+          "tc_total_periodos_considerados": {
+            "anos": 18,
+            "meses": 3,
+            "dias": 0
+          },
+          "tc_em_13_11_2019": "11 anos, 4 meses e 13 dias",
+          "carencia_em_11_2019": "137 contribuições",
+          "tc_na_dib": "18 anos e 3 meses",
+          "carencia_na_dib": "219 contribuições"
+        },
+        {
+          "doc": "3.0",
+          "arquivo": "Modelos.Docts.Planejamento.Previdenciario__Gian Carlo Cilento Filho__20251209-calc-transicao.art18.ec.sobre.4.500,00.doc3.0.doc.3.1.txt",
+          "dib": "08/06/2031",
+          "periodos_informados": [
+            {
+              "inicio": "01/06/1995",
+              "fim": "31/12/1997",
+              "tipo": "Normal",
+              "empresa": "EMPRESÁRIO / EMPREGADOR | empresário"
+            },
+            {
+              "inicio": "01/01/1998",
+              "fim": "28/02/1998",
+              "tipo": "Licença",
+              "empresa": "EMPRESÁRIO / EMPREGADOR | Prec-Menor-Min -Desconsiderado"
+            },
+            {
+              "inicio": "01/03/1998",
+              "fim": "30/04/1998",
+              "tipo": "Normal",
+              "empresa": "EMPRESÁRIO / EMPREGADOR | empresário"
+            },
+            {
+              "inicio": "01/06/1998",
+              "fim": "28/02/1999",
+              "tipo": "Normal",
+              "empresa": "EMPRESÁRIO / EMPREGADOR | empresário"
+            },
+            {
+              "inicio": "01/03/1999",
+              "fim": "30/04/1999",
+              "tipo": "Licença",
+              "empresa": "EMPRESÁRIO / EMPREGADOR | Prec-Menor-Min -Desconsiderado"
+            },
+            {
+              "inicio": "01/05/1999",
+              "fim": "30/11/1999",
+              "tipo": "Normal",
+              "empresa": "EMPRESÁRIO / EMPREGADOR | empresário"
+            },
+            {
+              "inicio": "01/12/1999",
+              "fim": "31/12/1999",
+              "tipo": "Normal",
+              "empresa": "RECOLHIMENTO | contribuinte individual"
+            },
+            {
+              "inicio": "01/05/2000",
+              "fim": "31/05/2000",
+              "tipo": "Licença",
+              "empresa": "RECOLHIMENTO | Prec-Menor-Min -Desconsiderado"
+            },
+            {
+              "inicio": "01/02/2002",
+              "fim": "31/08/2002",
+              "tipo": "Normal",
+              "empresa": "RECOLHIMENTO | contribuinte individual"
+            },
+            {
+              "inicio": "01/09/2004",
+              "fim": "31/01/2007",
+              "tipo": "Normal",
+              "empresa": "Pro Ita Corretora Seg. Ltda - Ativa | C.I GFIP prest.serv"
+            },
+            {
+              "inicio": "01/05/2014",
+              "fim": "31/05/2017",
+              "tipo": "Normal",
+              "empresa": "Branco & Cilento Ltda - Baixada | C.I GFIP prest.serv"
+            },
+            {
+              "inicio": "01/09/2018",
+              "fim": "31/12/2018",
+              "tipo": "Normal",
+              "empresa": "RECOLHIMENTO | contribuinte individual"
+            },
+            {
+              "inicio": "01/01/2019",
+              "fim": "31/01/2019",
+              "tipo": "Licença",
+              "empresa": "RECOLHIMENTO | Prec-Menor-Min -Desconsiderado"
+            },
+            {
+              "inicio": "01/02/2019",
+              "fim": "31/10/2025",
+              "tipo": "Normal",
+              "empresa": "RECOLHIMENTO | contribuinte individual"
+            },
+            {
+              "inicio": "01/11/2025",
+              "fim": "08/06/2031",
+              "tipo": "Normal",
+              "empresa": "a recolher"
+            }
+          ],
+          "tc_total_periodos_considerados": {
+            "anos": 22,
+            "meses": 11,
+            "dias": 8
+          },
+          "tc_em_13_11_2019": "11 anos, 4 meses e 13 dias",
+          "carencia_em_11_2019": "137 contribuições",
+          "tc_na_dib": "22 anos, 11 meses e 8 dias",
+          "carencia_na_dib": "276 contribuições"
+        }
+      ],
+      "resumo_pre_analise": {
+        "arquivo": "Modelos.Docts.Planejamento.Previdenciario__Gian Carlo Cilento Filho__resumo.atendimento.pre.analise.gian.carlo.txt",
+        "data_pre_analise": "23/10/2025",
+        "tc_em_13_11_2019": "11A / 10M / 13D",
+        "tc_atual": "17A / 9M / 0D (Doc.1.0 da pré-análise)",
+        "idade_na_pre_analise": "59A / 04M / 15D",
+        "premissa": "Mantendo os recolhimentos (contribuinte individual sobre o salário mínimo desde 09/2018)",
+        "regras_projetadas": {
+          "art_18_idade": "08/06/2031",
+          "art_16_idade_minima_progressiva": "01/07/2043",
+          "art_15_pontos": "01/07/2043",
+          "art_20_pedagio_100": "18/02/2067"
+        },
+        "observacao": "TC em 13/11/2019 da pré-análise (11A/10M/13D) difere do Doc.1.0 definitivo (11 anos, 4 meses e 12 dias) porque o Doc.1.0 desconsiderou competências com indicador PREC-MENOR-MIN."
+      }
+    },
+    "suely": {
+      "segurado": {
+        "nome": "SUELY REDUA BARBOSA RIBEIRO",
+        "sexo": "F",
+        "nascimento": "26/02/1964"
+      },
+      "contagem_anterior_ec103": {
+        "arquivo": "Modelos.Docts.Planejamento.Previdenciario__Suely Redua Barbosa__20251118-contagem-tc.RGPS.anterior.ec103.sem.especial.doc.5.0.txt",
+        "periodos_informados": [
+          {
+            "inicio": "21/03/1994",
+            "fim": "07/11/1997",
+            "tipo": "Normal",
+            "empresa": "SERMED - SERVICOS MEDICOS HOSPITALARES SC"
+          },
+          {
+            "inicio": "01/11/1994",
+            "fim": "25/12/1994",
+            "tipo": "Normal",
+            "empresa": "AUXILIO DOENCA PREVIDENCIARIO"
+          },
+          {
+            "inicio": "01/01/2009",
+            "fim": "31/03/2009",
+            "tipo": "Normal",
+            "empresa": "Unimed Paulistana Soc Coop | C.I. GFIP prestador de serviço"
+          },
+          {
+            "inicio": "01/03/2015",
+            "fim": "30/04/2016",
+            "tipo": "Normal",
+            "empresa": "RECOLHIMENTO"
+          },
+          {
+            "inicio": "09/11/2015",
+            "fim": "12/11/2019",
+            "tipo": "Normal",
+            "empresa": "ASSOCIACAO SAUDE DA FAMILIA"
+          }
+        ],
+        "tc_total_periodos_considerados": {
+          "anos": 8,
+          "meses": 6,
+          "dias": 29
+        },
+        "analise": {
+          "titulo": "Tempo de Contribuição RGPS até 12/11/2019 - anterior à EC103/2019 - s/especial - Doc.5.0",
+          "tc_em_16_12_1998": "3 anos, 7 meses e 17 dias",
+          "tc_em_29_11_1999": "3 anos, 7 meses e 17 dias",
+          "tc_em_12_11_2019": "8 anos, 6 meses e 29 dias",
+          "carencia_em_12_11_2019": "105 contribuições",
+          "idade_em_12_11_2019": "55 anos, 8 meses e 16 dias",
+          "pontos_em_12_11_2019": "64 pontos (não possui o tempo mínimo de contribuição)",
+          "possivel_aposentadoria_por_idade": "12/02/2026 (62 anos)"
+        }
+      },
+      "cenarios_calculo": [
+        {
+          "doc": "6.0",
+          "arquivo": "Modelos.Docts.Planejamento.Previdenciario__Suely Redua Barbosa__20251118-calc-RGPS.regra.transicao.art18.ec103.sem.especial.sobre.teto.doc.6.0.doc.6.1.txt",
+          "dib": "01/05/2026",
+          "periodos_informados": [
+            {
+              "inicio": "21/03/1994",
+              "fim": "07/11/1997",
+              "tipo": "Normal",
+              "empresa": "SERMED - SERVICOS MEDICOS HOSPITALARES SC"
+            },
+            {
+              "inicio": "01/11/1994",
+              "fim": "25/12/1994",
+              "tipo": "Normal",
+              "empresa": "AUXILIO DOENCA PREVIDENCIARIO"
+            },
+            {
+              "inicio": "01/01/2009",
+              "fim": "31/03/2009",
+              "tipo": "Normal",
+              "empresa": "Unimed Paulistana Soc Coop | C.I. GFIP prestador de serviço"
+            },
+            {
+              "inicio": "01/03/2015",
+              "fim": "30/04/2016",
+              "tipo": "Normal",
+              "empresa": "RECOLHIMENTO"
+            },
+            {
+              "inicio": "09/11/2015",
+              "fim": "14/11/2025",
+              "tipo": "Normal",
+              "empresa": "ASSOCIACAO SAUDE DA FAMILIA | clt atual"
+            },
+            {
+              "inicio": "05/12/2019",
+              "fim": "12/12/2019",
+              "tipo": "Normal",
+              "empresa": "SPDM - ASSOCIACAO PAULISTA PARA O"
+            },
+            {
+              "inicio": "15/11/2025",
+              "fim": "30/04/2026",
+              "tipo": "Normal",
+              "empresa": "a recolher RGPS"
+            }
+          ],
+          "tc_total_periodos_considerados": {
+            "anos": 15,
+            "meses": 0,
+            "dias": 17
+          },
+          "tc_em_13_11_2019": "8 anos e 7 meses",
+          "carencia_em_11_2019": "105 contribuições",
+          "tc_na_dib": "15 anos e 17 dias",
+          "carencia_na_dib": "182 contribuições"
+        },
+        {
+          "doc": "7.0",
+          "arquivo": "Modelos.Docts.Planejamento.Previdenciario__Suely Redua Barbosa__20251118-calc-RGPS.regra.transicao.art18.ec103.sem.especial.sobre.teto.doc.7.0.doc.7.1.txt",
+          "dib": "26/02/2029",
+          "periodos_informados": [
+            {
+              "inicio": "21/03/1994",
+              "fim": "07/11/1997",
+              "tipo": "Normal",
+              "empresa": "SERMED - SERVICOS MEDICOS HOSPITALARES SC"
+            },
+            {
+              "inicio": "01/11/1994",
+              "fim": "25/12/1994",
+              "tipo": "Normal",
+              "empresa": "AUXILIO DOENCA PREVIDENCIARIO"
+            },
+            {
+              "inicio": "01/01/2009",
+              "fim": "31/03/2009",
+              "tipo": "Normal",
+              "empresa": "Unimed Paulistana Soc Coop | C.I. GFIP prestador de serviço"
+            },
+            {
+              "inicio": "01/03/2015",
+              "fim": "30/04/2016",
+              "tipo": "Normal",
+              "empresa": "RECOLHIMENTO"
+            },
+            {
+              "inicio": "09/11/2015",
+              "fim": "14/11/2025",
+              "tipo": "Normal",
+              "empresa": "ASSOCIACAO SAUDE DA FAMILIA | clt atual"
+            },
+            {
+              "inicio": "05/12/2019",
+              "fim": "12/12/2019",
+              "tipo": "Normal",
+              "empresa": "SPDM - ASSOCIACAO PAULISTA PARA O"
+            },
+            {
+              "inicio": "15/11/2025",
+              "fim": "26/02/2029",
+              "tipo": "Normal",
+              "empresa": "a recolher RGPS"
+            }
+          ],
+          "tc_total_periodos_considerados": {
+            "anos": 17,
+            "meses": 10,
+            "dias": 13
+          },
+          "tc_em_13_11_2019": "8 anos e 7 meses",
+          "carencia_em_11_2019": "105 contribuições",
+          "tc_na_dib": "17 anos, 10 meses e 13 dias",
+          "carencia_na_dib": "216 contribuições"
+        },
+        {
+          "doc": "8.0",
+          "arquivo": "Modelos.Docts.Planejamento.Previdenciario__Suely Redua Barbosa__20251118-calc-RGPS.regra.transicao.art18.ec103.com.especial.sobre.teto.doc.8.0.doc.8.1.txt",
+          "dib": "26/02/2026",
+          "periodos_informados": [
+            {
+              "inicio": "21/03/1994",
+              "fim": "07/11/1997",
+              "tipo": "Especial",
+              "empresa": "SERMED - SERVICOS MEDICOS HOSPITALARES SC"
+            },
+            {
+              "inicio": "01/11/1994",
+              "fim": "25/12/1994",
+              "tipo": "Normal",
+              "empresa": "AUXILIO DOENCA PREVIDENCIARIO"
+            },
+            {
+              "inicio": "01/01/2009",
+              "fim": "31/03/2009",
+              "tipo": "Normal",
+              "empresa": "Unimed Paulistana Soc Coop | C.I. GFIP prestador de serviço"
+            },
+            {
+              "inicio": "01/03/2015",
+              "fim": "30/04/2016",
+              "tipo": "Normal",
+              "empresa": "RECOLHIMENTO"
+            },
+            {
+              "inicio": "09/11/2015",
+              "fim": "12/11/2019",
+              "tipo": "Especial",
+              "empresa": "ASSOCIACAO SAUDE DA FAMILIA | especial - por exposição PPP"
+            },
+            {
+              "inicio": "13/11/2019",
+              "fim": "14/11/2025",
+              "tipo": "Normal",
+              "empresa": "ASSOCIACAO SAUDE DA FAMILIA | clt atual"
+            },
+            {
+              "inicio": "05/12/2019",
+              "fim": "12/12/2019",
+              "tipo": "Normal",
+              "empresa": "SPDM - ASSOCIACAO PAULISTA PARA O"
+            },
+            {
+              "inicio": "15/11/2025",
+              "fim": "26/02/2026",
+              "tipo": "Normal",
+              "empresa": "a recolher RGPS"
+            }
+          ],
+          "tc_total_periodos_considerados": {
+            "anos": 14,
+            "meses": 10,
+            "dias": 13
+          },
+          "tc_em_13_11_2019": "10 anos, 1 mês e 9 dias",
+          "carencia_em_11_2019": "105 contribuições",
+          "tc_na_dib": "16 anos, 4 meses e 22 dias",
+          "carencia_na_dib": "180 contribuições"
+        },
+        {
+          "doc": "9.0",
+          "arquivo": "Modelos.Docts.Planejamento.Previdenciario__Suely Redua Barbosa__20251118-calc-RGPS.regra.transicao.art18.ec103.com.especial.sobre.teto.doc.9.0.doc.9.1.txt",
+          "dib": "26/02/2029",
+          "periodos_informados": [
+            {
+              "inicio": "21/03/1994",
+              "fim": "07/11/1997",
+              "tipo": "Especial",
+              "empresa": "SERMED - SERVICOS MEDICOS HOSPITALARES SC"
+            },
+            {
+              "inicio": "01/11/1994",
+              "fim": "25/12/1994",
+              "tipo": "Normal",
+              "empresa": "AUXILIO DOENCA PREVIDENCIARIO"
+            },
+            {
+              "inicio": "01/01/2009",
+              "fim": "31/03/2009",
+              "tipo": "Normal",
+              "empresa": "Unimed Paulistana Soc Coop | C.I. GFIP prestador de serviço"
+            },
+            {
+              "inicio": "01/03/2015",
+              "fim": "30/04/2016",
+              "tipo": "Normal",
+              "empresa": "RECOLHIMENTO"
+            },
+            {
+              "inicio": "09/11/2015",
+              "fim": "12/11/2019",
+              "tipo": "Especial",
+              "empresa": "ASSOCIACAO SAUDE DA FAMILIA | especial - por exposição PPP"
+            },
+            {
+              "inicio": "13/11/2019",
+              "fim": "14/11/2025",
+              "tipo": "Normal",
+              "empresa": "ASSOCIACAO SAUDE DA FAMILIA | clt atual"
+            },
+            {
+              "inicio": "05/12/2019",
+              "fim": "12/12/2019",
+              "tipo": "Normal",
+              "empresa": "SPDM - ASSOCIACAO PAULISTA PARA O"
+            },
+            {
+              "inicio": "15/11/2025",
+              "fim": "26/02/2029",
+              "tipo": "Normal",
+              "empresa": "a recolher RGPS"
+            }
+          ],
+          "tc_total_periodos_considerados": {
+            "anos": 17,
+            "meses": 10,
+            "dias": 13
+          },
+          "tc_em_13_11_2019": "10 anos, 1 mês e 9 dias",
+          "carencia_em_11_2019": "105 contribuições",
+          "tc_na_dib": "19 anos, 4 meses e 22 dias",
+          "carencia_na_dib": "216 contribuições"
+        }
+      ],
+      "resumo_pre_analise": {
+        "arquivo": "Modelos.Docts.Planejamento.Previdenciario__Suely Redua Barbosa__resumo.atendimento.pre.analise.sueluy.txt",
+        "data_pre_analise": "02/10/2025",
+        "cenarios": [
+          {
+            "cenario": "RGPS comum (sem conversão especial)",
+            "tc_em_12_11_2019": "9A / 11M / 18D",
+            "idade_em_12_11_2019": "55A / 8M / 16D",
+            "tc_atual": "15A / 10M / 15D (Doc.4.0 da pré-análise)",
+            "idade_na_pre_analise": "61A / 7M / 13D",
+            "regras_projetadas": {
+              "art_18_idade": "26/02/2026",
+              "art_16_idade_minima_progressiva": "24/11/2039",
+              "art_15_pontos": "24/11/2039",
+              "art_20_pedagio_100": "05/12/2059"
+            }
+          },
+          {
+            "cenario": "RGPS com conversão especial até 12/11/2019 dos vínculos CLT",
+            "tc_em_12_11_2019": "11A / 7M / 24D",
+            "idade_em_12_11_2019": "55A / 8M / 16D",
+            "tc_atual": "17A / 6M / 21D (Doc.5.0 da pré-análise)",
+            "idade_na_pre_analise": "61A / 7M / 13D",
+            "regras_projetadas": {
+              "art_18_idade": "26/02/2026 (coeficiente um pouco maior)",
+              "art_16_idade_minima_progressiva": "18/03/2038",
+              "art_15_pontos": "18/03/2038",
+              "art_20_pedagio_100": "23/07/2056"
+            }
+          }
+        ],
+        "observacao": "A numeração de documentos citada na pré-análise (Doc.4.0/5.0) não corresponde à numeração final dos arquivos de cálculo. RPPS (SPPREV) fora do escopo destes fixtures."
+      }
+    }
+  }
+}

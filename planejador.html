@@ -1,0 +1,919 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Planejador Previdenciário RGPS — Protótipo</title>
+<style>
+  :root { --navy:#1F3864; --navy2:#2a4a82; --bg:#f4f6fa; --ok:#1d7a3e; --warn:#b06a00; --no:#8a8a8a; }
+  * { box-sizing:border-box; }
+  body { font-family: Arial, Helvetica, sans-serif; margin:0; background:var(--bg); color:#222; font-size:14px; }
+  header { background:var(--navy); color:#fff; padding:14px 24px; display:flex; align-items:baseline; gap:12px; flex-wrap:wrap; }
+  header h1 { font-size:18px; margin:0; }
+  .badge { background:#e8b339; color:#222; font-size:11px; font-weight:bold; padding:2px 8px; border-radius:10px; }
+  main { max-width:1100px; margin:0 auto; padding:16px; }
+  section { background:#fff; border:1px solid #dde3ee; border-radius:8px; padding:16px 18px; margin-bottom:14px; }
+  h2 { font-size:15px; color:var(--navy); margin:0 0 10px; }
+  h3 { font-size:13px; color:var(--navy2); margin:14px 0 6px; }
+  label { display:block; font-size:12px; color:#555; margin-bottom:2px; }
+  input[type=text], select, textarea { width:100%; padding:7px 8px; border:1px solid #c9d2e3; border-radius:5px; font:inherit; }
+  textarea { font-family:Consolas, monospace; font-size:13px; }
+  .row { display:flex; gap:12px; flex-wrap:wrap; }
+  .row > div { flex:1; min-width:140px; }
+  .hint { font-size:11.5px; color:#777; margin-top:4px; }
+  button { background:var(--navy); color:#fff; border:none; border-radius:6px; padding:9px 18px; font:inherit; font-weight:bold; cursor:pointer; }
+  button.sec { background:#fff; color:var(--navy); border:1px solid var(--navy); }
+  button:hover { opacity:.9; }
+  table { border-collapse:collapse; width:100%; margin-top:8px; }
+  th, td { border:1px solid #dde3ee; padding:6px 8px; text-align:left; vertical-align:top; font-size:12.5px; }
+  th { background:var(--navy); color:#fff; }
+  .cards { display:flex; gap:10px; flex-wrap:wrap; margin:8px 0; }
+  .card { flex:1; min-width:180px; background:#eef2f9; border-radius:8px; padding:10px 12px; }
+  .card .v { font-size:16px; font-weight:bold; color:var(--navy); }
+  .card .l { font-size:11px; color:#666; }
+  .st-ok { color:var(--ok); font-weight:bold; }
+  .st-fut { color:var(--warn); font-weight:bold; }
+  .st-na { color:var(--no); }
+  .rmi { font-weight:bold; color:var(--navy); white-space:nowrap; }
+  details summary { cursor:pointer; color:var(--navy); font-weight:bold; font-size:13px; }
+  footer { text-align:center; color:#888; font-size:11.5px; padding:10px 16px 30px; }
+  .toolbar { display:flex; gap:8px; flex-wrap:wrap; align-items:center; margin-top:10px; }
+  #msg { color:#b00020; font-size:12.5px; margin-top:6px; white-space:pre-wrap; }
+  #minuta { width:100%; height:420px; }
+</style>
+</head>
+<body>
+<header>
+  <h1>Planejador Previdenciário — RGPS</h1>
+  <span class="badge">PROTÓTIPO — uso interno, requer conferência do advogado</span>
+</header>
+<main>
+
+<section>
+  <h2>0. Importar CNIS (PDF do Meu INSS) — opcional</h2>
+  <p class="hint">Selecione o PDF do Extrato Previdenciário (tipo "Vínculos, contribuições e remunerações"). O sistema preenche nascimento, períodos e salários automaticamente. Requer internet na primeira leitura. Funciona com o PDF digital; digitalizações/fotos não.</p>
+  <div class="toolbar">
+    <button class="sec" onclick="document.getElementById('cnisfile').click()">Carregar CNIS (PDF)</button>
+    <input type="file" id="cnisfile" accept=".pdf" style="display:none" onchange="importarCNIS(this)">
+  </div>
+  <div id="cnisStatus" class="hint" style="margin-top:8px"></div>
+</section>
+
+<section>
+  <h2>1. Dados do caso</h2>
+  <div class="row">
+    <div style="flex:2"><label>Nome do(a) segurado(a)</label><input type="text" id="nome" placeholder="Nome completo"></div>
+    <div><label>Sexo</label><select id="sexo"><option value="M">Masculino</option><option value="F">Feminino</option></select></div>
+    <div><label>Nascimento (dd/mm/aaaa)</label><input type="text" id="nasc" placeholder="01/01/1965"></div>
+    <div><label>Data-base da análise</label><input type="text" id="hoje"></div>
+  </div>
+  <div class="toolbar">
+    <label style="display:flex;align-items:center;gap:6px;font-size:12.5px;color:#333;margin:0">
+      <input type="checkbox" id="continua" checked> Considerar que o(a) segurado(a) continuará contribuindo sem interrupção
+    </label>
+  </div>
+</section>
+
+<section>
+  <h2>2. Períodos de contribuição (do CNIS)</h2>
+  <p class="hint">Cole um período por linha: <b>data início, data fim e descrição</b> (opcional). Ex.: <code>01/03/1989 31/05/1995 Estado de SP - CLT</code>. Sobreposições (concomitância) são unificadas automaticamente. Vínculo em aberto: use a data-base como fim.</p>
+  <textarea id="periodos" rows="8" placeholder="01/02/1985 30/06/1992 Empresa A&#10;01/08/1992 15/03/2005 Empresa B&#10;01/04/2005 10/06/2026 Contribuinte individual"></textarea>
+</section>
+
+<section>
+  <h2>3. Salários de contribuição (opcional — necessário para RMI)</h2>
+  <p class="hint">Cole uma competência por linha: <b>mm/aaaa valor</b>, com os valores <b>já atualizados monetariamente</b> (relação de salários corrigidos do CNIS/cálculo). Ex.: <code>07/1994 3.250,00</code>. Sem salários, o sistema calcula tempo e datas, mas não a RMI.</p>
+  <textarea id="salarios" rows="6" placeholder="07/1994 2.500,00&#10;08/1994 2.500,00&#10;..."></textarea>
+</section>
+
+<details><summary>Parâmetros do sistema (2026) — clique para editar</summary>
+<section style="margin-top:8px">
+  <div class="row">
+    <div><label>Teto do RGPS (R$)</label><input type="text" id="pteto" value="8475,55"></div>
+    <div><label>Salário mínimo (R$)</label><input type="text" id="psalmin" value="1621,00"></div>
+    <div><label>Divisor mínimo (Lei 14.331/22)</label><input type="text" id="pdivmin" value="108"></div>
+  </div>
+  <h3>Tábua de mortalidade — expectativa de sobrevida (IBGE, ambos os sexos)</h3>
+  <p class="hint">Formato: <code>idade=anos</code>, separados por vírgula. Valores aproximados da tábua IBGE 2024 — confira/atualize com a tábua oficial vigente antes de usar o fator previdenciário em parecer.</p>
+  <textarea id="ptabua" rows="3">45=34.6,46=33.7,47=32.9,48=32.0,49=31.2,50=30.4,51=29.6,52=28.8,53=28.0,54=27.2,55=26.4,56=25.6,57=24.9,58=24.1,59=23.3,60=22.6,61=21.8,62=21.1,63=20.4,64=19.6,65=18.9,66=18.2,67=17.5,68=16.9,69=16.2,70=15.5,71=14.9,72=14.3,73=13.7,74=13.1,75=12.5</textarea>
+</section>
+</details>
+
+<div class="toolbar" style="margin:14px 0">
+  <button onclick="analisar()">Analisar caso</button>
+  <button class="sec" onclick="salvarCaso()">Salvar caso</button>
+  <select id="casosSalvos" onchange="abrirCaso(this.value)" style="max-width:260px"><option value="">Abrir caso salvo...</option></select>
+  <button class="sec" onclick="exportarJSON()">Exportar dados</button>
+  <button class="sec" onclick="document.getElementById('impfile').click()">Importar dados</button>
+  <input type="file" id="impfile" accept=".json" style="display:none" onchange="importarJSON(this)">
+</div>
+<div id="msg"></div>
+
+<section id="resultado" style="display:none">
+  <h2>Resultado da análise</h2>
+  <div class="cards" id="cardsTempo"></div>
+  <h3>Enquadramento nas regras</h3>
+  <table id="tabRegras"><thead><tr><th style="width:24%">Regra</th><th style="width:11%">Situação</th><th style="width:11%">Data</th><th>Detalhamento</th><th style="width:12%">RMI estimada</th></tr></thead><tbody></tbody></table>
+  <div class="toolbar"><button onclick="gerarMinuta()">Gerar minuta do parecer</button></div>
+</section>
+
+<section id="secMinuta" style="display:none">
+  <h2>Minuta do parecer (rascunho para revisão)</h2>
+  <textarea id="minuta"></textarea>
+  <div class="toolbar"><button onclick="baixarDoc()">Baixar como Word (.doc)</button></div>
+</section>
+
+</main>
+<footer>Protótipo de validação — os resultados são estimativas e NÃO substituem a conferência do advogado, os índices oficiais de atualização monetária e a tábua IBGE vigente. Dados ficam apenas neste navegador (localStorage).</footer>
+
+<script>
+// ===================================================================
+// NÚCLEO DE CÁLCULO PREVIDENCIÁRIO (RGPS) — puro, testável em Node
+// Protótipo Machado Filgueiras — não substitui conferência profissional
+// ===================================================================
+"use strict";
+
+// ---------- datas ----------
+function dt(d, m, y) { return Date.UTC(y, m - 1, d); }
+function parseBR(s) {
+  const m = String(s).trim().match(/^(\d{1,2})\/(\d{1,2})\/(\d{4})$/);
+  if (!m) return null;
+  const t = dt(+m[1], +m[2], +m[3]);
+  const c = new Date(t);
+  if (c.getUTCDate() !== +m[1] || c.getUTCMonth() !== +m[2] - 1) return null;
+  return t;
+}
+function fmtBR(t) {
+  const d = new Date(t);
+  const p = n => String(n).padStart(2, "0");
+  return `${p(d.getUTCDate())}/${p(d.getUTCMonth() + 1)}/${d.getUTCFullYear()}`;
+}
+const DAY = 86400000;
+function addDays(t, n) { return t + n * DAY; }
+function yearOf(t) { return new Date(t).getUTCFullYear(); }
+
+// idade em anos fracionários na data t
+function idadeAnos(nasc, t) {
+  return (t - nasc) / (365.25 * DAY);
+}
+// idade exata em anos/meses/dias (calendário)
+function idadeAMD(nasc, t) {
+  const a = new Date(nasc), b = new Date(t);
+  let y = b.getUTCFullYear() - a.getUTCFullYear();
+  let m = b.getUTCMonth() - a.getUTCMonth();
+  let d = b.getUTCDate() - a.getUTCDate();
+  if (d < 0) { m--; d += 30; }
+  if (m < 0) { y--; m += 12; }
+  return { y, m, d };
+}
+function dataAoCompletar(nasc, anos) { // data em que completa X anos (aceita meio ano)
+  const inteiro = Math.floor(anos);
+  const frac = anos - inteiro;
+  const a = new Date(nasc);
+  let y = a.getUTCFullYear() + inteiro, m = a.getUTCMonth() + (frac >= 0.49 ? 6 : 0), d = a.getUTCDate();
+  const ultimo = new Date(Date.UTC(y, m + 1, 0)).getUTCDate();
+  return Date.UTC(y, m, Math.min(d, ultimo));
+}
+function atingiuIdade(nasc, t, anos) { return t >= dataAoCompletar(nasc, anos); }
+
+// ---------- períodos ----------
+// período: {ini, fim, desc}
+function mesclarPeriodos(periodos) { // remove concomitância (une sobreposições)
+  const ps = periodos.filter(p => p.ini != null && p.fim != null && p.fim >= p.ini)
+    .slice().sort((a, b) => a.ini - b.ini);
+  const out = [];
+  for (const p of ps) {
+    const last = out[out.length - 1];
+    if (last && p.ini <= addDays(last.fim, 1)) {
+      if (p.fim > last.fim) last.fim = p.fim;
+    } else out.push({ ini: p.ini, fim: p.fim });
+  }
+  return out;
+}
+// dias de contribuição até a data corte (inclusive), períodos já mesclados
+function diasAte(merged, corte) {
+  let dias = 0;
+  for (const p of merged) {
+    if (p.ini > corte) break;
+    const fim = Math.min(p.fim, corte);
+    dias += Math.round((fim - p.ini) / DAY) + 1;
+  }
+  return dias;
+}
+function diasParaAMD(dias) {
+  const y = Math.floor(dias / 365);
+  const r = dias % 365;
+  return { y, m: Math.floor(r / 30), d: r % 30, dias };
+}
+function fmtAMD(o) {
+  return `${o.y} ano(s), ${o.m} mês(es) e ${o.d} dia(s)`;
+}
+function tcAnos(dias) { return dias / 365; }
+
+// fim do último período (para projeção)
+function ultimoFim(merged) { return merged.length ? merged[merged.length - 1].fim : null; }
+
+// dias projetados na data futura t: contribuição contínua a partir de "base"
+function diasProjetados(merged, base, t) {
+  const atuais = diasAte(merged, base);
+  if (t <= base) return diasAte(merged, t);
+  return atuais + Math.round((t - base) / DAY);
+}
+
+// ---------- marcos ----------
+const EC103 = dt(13, 11, 2019);
+const VESPERA = dt(12, 11, 2019);
+
+// ---------- requisitos por regra ----------
+// sexo: 'M' (homem) | 'F' (mulher)
+function tcMinimo(sexo) { return sexo === 'M' ? 35 : 30; }
+
+function pontosMinimos(ano, sexo) {
+  const base = sexo === 'M' ? 96 : 86;
+  const cap = sexo === 'M' ? 105 : 100;
+  return Math.min(base + Math.max(0, ano - 2019), cap);
+}
+function idadeMinimaArt16(ano, sexo) {
+  const base = sexo === 'M' ? 61 : 56;
+  const cap = sexo === 'M' ? 65 : 62;
+  return Math.min(base + 0.5 * Math.max(0, ano - 2019), cap);
+}
+function idadeMinimaArt18(ano, sexo) {
+  if (sexo === 'M') return 65;
+  return Math.min(60 + 0.5 * Math.max(0, ano - 2019), 62);
+}
+function pontos8595(ano) { // direito adquirido Lei 13.183 (para isenção de fator pré-reforma)
+  // 85/95 até 30/12/2018; 86/96 de 31/12/2018 a 30/12/2020... (Lei 13.183/15)
+  if (ano <= 2018) return { F: 85, M: 95 };
+  if (ano <= 2020) return { F: 86, M: 96 };
+  if (ano <= 2022) return { F: 87, M: 97 };
+  if (ano <= 2024) return { F: 88, M: 98 };
+  if (ano <= 2026) return { F: 89, M: 99 };
+  return { F: 90, M: 100 };
+}
+
+// ---------- avaliação das regras ----------
+// ctx: {sexo, nasc, merged, hoje, continuaContribuindo}
+function baseProjecao(ctx) {
+  const uf = ultimoFim(ctx.merged);
+  if (uf == null) return ctx.hoje;
+  return Math.min(Math.max(uf, ctx.hoje), ctx.hoje); // contribui até hoje; futuro = a partir de hoje
+}
+// procura a primeira data (passo mensal, refino diário) em que cond(t) === true
+function primeiraData(cond, inicio, limiteAnos = 45) {
+  const fim = addDays(inicio, Math.round(limiteAnos * 365.25));
+  if (cond(inicio)) return inicio;
+  let t = inicio, passo = 30 * DAY;
+  while (t < fim) {
+    const prox = t + passo;
+    if (cond(prox)) { // refina diário
+      let lo = t, hi = prox;
+      while (hi - lo > DAY) {
+        const mid = lo + Math.floor((hi - lo) / (2 * DAY)) * DAY;
+        if (cond(mid)) hi = mid; else lo = mid;
+      }
+      return hi;
+    }
+    t = prox;
+  }
+  return null;
+}
+
+function avaliarRegras(ctx) {
+  const { sexo, nasc, merged, hoje } = ctx;
+  const tcMin = tcMinimo(sexo);
+  const diasNaEC = diasAte(merged, VESPERA);
+  const tcNaEC = tcAnos(diasNaEC);
+  const base = baseProjecao(ctx);
+  const cont = ctx.continuaContribuindo !== false;
+
+  const TC = t => tcAnos(cont ? diasProjetados(merged, base, t) : diasAte(merged, t));
+  const ID = t => idadeAnos(nasc, t);
+
+  const res = [];
+
+  // ---- Direito adquirido (ATC pré-reforma) ----
+  {
+    const ok = tcNaEC >= tcMin;
+    const idadeEC = idadeAnos(nasc, VESPERA);
+    const p8595 = pontos8595(2019)[sexo];
+    const pontosEC = tcNaEC + idadeEC;
+    res.push({
+      id: 'da', nome: 'Direito adquirido — ATC integral (pré-EC 103)',
+      fundamento: 'Art. 201, §7º, I, CF; Lei 8.213/91; EC 103/2019, art. 3º',
+      cumprida: ok, data: ok ? VESPERA : null,
+      detalhe: ok
+        ? `Em 12/11/2019 o tempo de contribuição era de ${fmtAMD(diasParaAMD(diasNaEC))} (mínimo: ${tcMin} anos). ` +
+          (pontosEC >= p8595 ? `Pontuação ${pontosEC.toFixed(1)} ≥ ${p8595} (regra 85/95 progressiva): fator previdenciário afastável.` :
+            `Pontuação ${pontosEC.toFixed(1)} < ${p8595}: cálculo com fator previdenciário.`)
+        : `Em 12/11/2019 o tempo era de ${fmtAMD(diasParaAMD(diasNaEC))} — inferior a ${tcMin} anos.`,
+      calc: ok && pontosEC >= p8595 ? 'media80' : 'media80_fator'
+    });
+  }
+
+  // ---- Art. 15 — pontos ----
+  {
+    const cond = t => {
+      const tc = TC(t);
+      return tc >= tcMin && (tc + ID(t)) >= pontosMinimos(yearOf(t), sexo);
+    };
+    const d = primeiraData(cond, EC103) ?? null;
+    const cumpridaHoje = cond(hoje);
+    res.push({
+      id: 'art15', nome: 'Transição — Pontos (art. 15, EC 103)',
+      fundamento: 'EC 103/2019, art. 15', cumprida: cumpridaHoje, data: d,
+      detalhe: d ? `${cumpridaHoje ? 'Requisitos já cumpridos' : 'Projeção de implemento'} em ${fmtBR(d)}: ` +
+        `TC ${TC(d).toFixed(1)} anos + idade ${ID(d).toFixed(1)} = ${(TC(d) + ID(d)).toFixed(1)} pontos (mínimo ${pontosMinimos(yearOf(d), sexo)} em ${yearOf(d)}).`
+        : 'Não alcançada no horizonte de 45 anos.',
+      calc: 'media100_coef'
+    });
+  }
+
+  // ---- Art. 16 — idade progressiva ----
+  {
+    const cond = t => TC(t) >= tcMin && atingiuIdade(nasc, t, idadeMinimaArt16(yearOf(t), sexo));
+    const d = primeiraData(cond, EC103);
+    res.push({
+      id: 'art16', nome: 'Transição — Idade mínima progressiva (art. 16, EC 103)',
+      fundamento: 'EC 103/2019, art. 16', cumprida: cond(hoje), data: d,
+      detalhe: d ? `${cond(hoje) ? 'Requisitos já cumpridos' : 'Projeção de implemento'} em ${fmtBR(d)}: TC ${TC(d).toFixed(1)} anos e idade ${ID(d).toFixed(1)} (mínima ${idadeMinimaArt16(yearOf(d), sexo).toFixed(1)} em ${yearOf(d)}).`
+        : 'Não alcançada no horizonte de 45 anos.',
+      calc: 'media100_coef'
+    });
+  }
+
+  // ---- Art. 17 — pedágio 50% ----
+  {
+    const faltavaDias = Math.round(tcMin * 365) - diasNaEC;
+    const elegivel = faltavaDias > 0 && faltavaDias <= Math.round(2 * 365);
+    let d = null;
+    if (elegivel) {
+      const alvoDias = Math.round(tcMin * 365) + Math.ceil(faltavaDias * 0.5);
+      const cond = t => (cont ? diasProjetados(merged, base, t) : diasAte(merged, t)) >= alvoDias;
+      d = primeiraData(cond, EC103);
+    }
+    res.push({
+      id: 'art17', nome: 'Transição — Pedágio de 50% (art. 17, EC 103)',
+      fundamento: 'EC 103/2019, art. 17', cumprida: elegivel && d != null && d <= hoje, data: d,
+      detalhe: elegivel
+        ? `Faltavam ${fmtAMD(diasParaAMD(faltavaDias))} em 13/11/2019 (≤ 2 anos). Pedágio: ${fmtAMD(diasParaAMD(Math.ceil(faltavaDias * 0.5)))}. ` +
+          (d ? `Implemento em ${fmtBR(d)}. Cálculo com fator previdenciário (verificar se favorável).` : 'Não alcançada.')
+        : (faltavaDias <= 0 ? 'Inaplicável: tempo mínimo já cumprido antes da EC (ver direito adquirido).' : `Inaplicável: faltavam mais de 2 anos em 13/11/2019 (${fmtAMD(diasParaAMD(faltavaDias))}).`),
+      calc: 'media100_fator'
+    });
+  }
+
+  // ---- Art. 18 — idade ----
+  {
+    const cond = t => TC(t) >= 15 && atingiuIdade(nasc, t, idadeMinimaArt18(yearOf(t), sexo));
+    const d = primeiraData(cond, EC103);
+    res.push({
+      id: 'art18', nome: 'Transição — Aposentadoria por idade (art. 18, EC 103)',
+      fundamento: 'EC 103/2019, art. 18', cumprida: cond(hoje), data: d,
+      detalhe: d ? `${cond(hoje) ? 'Requisitos já cumpridos' : 'Projeção de implemento'} em ${fmtBR(d)}: idade ${ID(d).toFixed(1)} (mínima ${idadeMinimaArt18(yearOf(d), sexo)}) e TC ${TC(d).toFixed(1)} anos (mínimo 15).`
+        : 'Não alcançada no horizonte de 45 anos.',
+      calc: 'media100_coef'
+    });
+  }
+
+  // ---- Art. 20 — pedágio 100% ----
+  {
+    const faltavaDias = Math.max(0, Math.round(tcMin * 365) - diasNaEC);
+    const idadeMin = sexo === 'M' ? 60 : 57;
+    const alvoDias = Math.round(tcMin * 365) + faltavaDias; // tcMin + pedágio 100%
+    const cond = t => {
+      const dd = cont ? diasProjetados(merged, base, t) : diasAte(merged, t);
+      return dd >= alvoDias && atingiuIdade(nasc, t, idadeMin);
+    };
+    const d = primeiraData(cond, EC103);
+    res.push({
+      id: 'art20', nome: 'Transição — Pedágio de 100% (art. 20, EC 103)',
+      fundamento: 'EC 103/2019, art. 20', cumprida: cond(hoje), data: d,
+      detalhe: d ? `${cond(hoje) ? 'Requisitos já cumpridos' : 'Projeção de implemento'} em ${fmtBR(d)}: idade mínima ${idadeMin} anos + TC ${tcMin} anos + pedágio de ${fmtAMD(diasParaAMD(faltavaDias))}. Cálculo: 100% da média.`
+        : 'Não alcançada no horizonte de 45 anos.',
+      calc: 'media100'
+    });
+  }
+
+  // ---- Regra permanente (referência) ----
+  {
+    const idMin = sexo === 'M' ? 65 : 62;
+    const tcMinP = sexo === 'M' ? 20 : 15;
+    const cond = t => TC(t) >= tcMinP && atingiuIdade(nasc, t, idMin);
+    const d = primeiraData(cond, EC103);
+    res.push({
+      id: 'perm', nome: 'Regra permanente (art. 19, EC 103 — referência)',
+      fundamento: 'EC 103/2019', cumprida: cond(hoje), data: d,
+      detalhe: d ? `Idade ${idMin} + ${tcMinP} anos de TC em ${fmtBR(d)}.` : 'Não alcançada no horizonte de 45 anos.',
+      calc: 'media100_coef'
+    });
+  }
+
+  return { regras: res, diasNaEC, base };
+}
+
+// ---------- salários e RMI ----------
+// salarios: [{comp: 'mm/aaaa', valor: number}] — valores JÁ ATUALIZADOS monetariamente
+function parseSalarios(texto) {
+  const out = []; const erros = [];
+  for (const raw of String(texto).split(/\n+/)) {
+    const line = raw.trim();
+    if (!line) continue;
+    const m = line.match(/(\d{2})\/(\d{4})[\s;,\t]+R?\$?\s*([\d.,]+)/);
+    if (!m) { erros.push(line); continue; }
+    const valor = parseFloat(m[3].replace(/\./g, '').replace(',', '.'));
+    if (!isFinite(valor)) { erros.push(line); continue; }
+    out.push({ comp: `${m[1]}/${m[2]}`, ano: +m[2], mes: +m[1], valor });
+  }
+  return { salarios: out, erros };
+}
+
+function mediaSimples(vals, divisorMinimo) {
+  const n = vals.length;
+  const soma = vals.reduce((a, b) => a + b, 0);
+  const div = Math.max(n, divisorMinimo || 0);
+  return n ? soma / div : 0;
+}
+
+// coeficiente 60% + 2%/ano excedente (cap 100%)
+function coef(tcAnosVal, sexo) {
+  const exc = Math.max(0, Math.floor(tcAnosVal) - (sexo === 'M' ? 20 : 15));
+  return Math.min(1, 0.60 + 0.02 * exc);
+}
+
+function fatorPrev(tc, idade, es) {
+  const a = 0.31;
+  return (tc * a / es) * (1 + (idade + tc * a) / 100);
+}
+
+// otimização do descarte (art. 26, §6º): remove menores salários enquanto
+// (a) média sobe, (b) TC remanescente ≥ tempo mínimo da regra, (c) respeita divisor mínimo
+function otimizarDescarte(vals, tcDias, tcMinAnos, divisorMinimo) {
+  const sorted = vals.slice().sort((a, b) => a - b);
+  let melhores = { media: mediaSimples(vals, divisorMinimo), descartes: 0 };
+  for (let k = 1; k <= sorted.length - 1; k++) {
+    const rem = sorted.slice(k);
+    const tcRestDias = tcDias - k * 30; // aproximação: 1 competência ≈ 30 dias
+    if (tcAnos(tcRestDias) < tcMinAnos) break;
+    const m = mediaSimples(rem, divisorMinimo);
+    if (m > melhores.media) melhores = { media: m, descartes: k, tcRestDias };
+  }
+  return melhores;
+}
+
+// calcula RMI por tipo de cálculo
+// params: {teto, salMin, divisorMinimo, tabuaEs}
+function calcularRMI(tipo, opts) {
+  const { salarios, tcDiasNaDER, idadeNaDER, sexo, tcMinRegra, params } = opts;
+  const vals = salarios.map(s => s.valor);
+  if (!vals.length) return { erro: 'Sem salários informados.' };
+  const esIdade = Math.min(75, Math.max(45, Math.floor(idadeNaDER)));
+  const es = params.tabuaEs[esIdade] ?? 18;
+  const tc = tcAnos(tcDiasNaDER);
+  let media, fator = null, coefic = null, descartes = 0, obs = [];
+
+  if (tipo === 'media80' || tipo === 'media80_fator') {
+    const sorted = vals.slice().sort((a, b) => b - a);
+    const n80 = Math.max(1, Math.round(sorted.length * 0.8));
+    media = mediaSimples(sorted.slice(0, n80), 0);
+    if (tipo === 'media80_fator') { fator = fatorPrev(tc, idadeNaDER, es); media *= fator; }
+    obs.push(`Média dos ${n80} maiores salários (80%).`);
+  } else if (tipo === 'media100') {
+    media = mediaSimples(vals, params.divisorMinimo);
+    coefic = 1;
+    obs.push('100% da média, sem descarte (art. 26, §3º, I).');
+  } else if (tipo === 'media100_fator') {
+    media = mediaSimples(vals, params.divisorMinimo);
+    fator = fatorPrev(tc, idadeNaDER, es);
+    if (fator > 1) obs.push('Fator previdenciário > 1: favorável.');
+    media *= fator;
+    coefic = 1;
+  } else { // media100_coef (60% + 2%)
+    const ot = otimizarDescarte(vals, tcDiasNaDER, tcMinRegra, params.divisorMinimo);
+    descartes = ot.descartes;
+    const tcFinal = tcAnos(ot.tcRestDias ?? tcDiasNaDER);
+    coefic = coef(tcFinal, sexo);
+    media = ot.media * coefic;
+    obs.push(`Descarte otimizado: ${descartes} competência(s) (art. 26, §6º). Coeficiente: ${(coefic * 100).toFixed(0)}%.`);
+  }
+
+  let rmi = media;
+  if (rmi > params.teto) { rmi = params.teto; obs.push('Limitada ao teto do RGPS.'); }
+  if (rmi < params.salMin) { rmi = params.salMin; obs.push('Elevada ao salário mínimo.'); }
+  return {
+    rmi, fator, coefic, descartes, es, idadeEs: esIdade,
+    obs: obs.join(' ')
+  };
+}
+
+if (typeof module !== 'undefined') module.exports = {
+  dt, parseBR, fmtBR, addDays, idadeAnos, idadeAMD, mesclarPeriodos, diasAte,
+  diasParaAMD, fmtAMD, tcAnos, diasProjetados, EC103, VESPERA, tcMinimo,
+  pontosMinimos, idadeMinimaArt16, idadeMinimaArt18, pontos8595, avaliarRegras,
+  parseSalarios, mediaSimples, coef, fatorPrev, otimizarDescarte, calcularRMI, primeiraData, dataAoCompletar, atingiuIdade
+};
+
+</script>
+<script>
+"use strict";
+// ===================== UI =====================
+const $ = id => document.getElementById(id);
+const fmtMoeda = v => v.toLocaleString('pt-BR', { style:'currency', currency:'BRL' });
+let ultimaAnalise = null;
+
+(function init(){
+  const n = new Date();
+  $('hoje').value = String(n.getDate()).padStart(2,'0') + '/' + String(n.getMonth()+1).padStart(2,'0') + '/' + n.getFullYear();
+  atualizarCasos();
+})();
+
+function parsePeriodos(texto, erros){
+  const out = [];
+  for (const raw of String(texto).split(/\n+/)){
+    const line = raw.trim(); if (!line) continue;
+    const m = line.match(/^(\d{1,2}\/\d{1,2}\/\d{4})[\s;,\t]+(\d{1,2}\/\d{1,2}\/\d{4})\s*(.*)$/);
+    if (!m){ erros.push('Período inválido: ' + line); continue; }
+    const ini = parseBR(m[1]), fim = parseBR(m[2]);
+    if (ini == null || fim == null || fim < ini){ erros.push('Datas inválidas: ' + line); continue; }
+    out.push({ ini, fim, desc: m[3] || '' });
+  }
+  return out;
+}
+function lerParametros(){
+  const num = s => parseFloat(String(s).replace(/\./g,'').replace(',','.'));
+  const tabuaEs = {};
+  for (const par of $('ptabua').value.split(',')){
+    const m = par.trim().match(/^(\d+)\s*=\s*([\d.]+)$/);
+    if (m) tabuaEs[+m[1]] = +m[2];
+  }
+  return { teto: num($('pteto').value), salMin: num($('psalmin').value), divisorMinimo: parseInt($('pdivmin').value)||108, tabuaEs };
+}
+
+function analisar(){
+  const erros = [];
+  $('msg').textContent = '';
+  const nasc = parseBR($('nasc').value);
+  const hoje = parseBR($('hoje').value);
+  if (nasc == null) erros.push('Informe a data de nascimento (dd/mm/aaaa).');
+  if (hoje == null) erros.push('Informe a data-base (dd/mm/aaaa).');
+  const periodos = parsePeriodos($('periodos').value, erros);
+  if (!periodos.length) erros.push('Informe ao menos um período de contribuição.');
+  const ps = parseSalarios($('salarios').value);
+  for (const e of ps.erros) erros.push('Salário ignorado (formato): ' + e);
+  if (erros.length && (nasc==null || hoje==null || !periodos.length)){ $('msg').textContent = erros.join('\n'); return; }
+  if (erros.length) $('msg').textContent = erros.join('\n');
+
+  const sexo = $('sexo').value;
+  const merged = mesclarPeriodos(periodos);
+  const ctx = { sexo, nasc, merged, hoje, continuaContribuindo: $('continua').checked };
+  const av = avaliarRegras(ctx);
+  const params = lerParametros();
+
+  // cards
+  const dHoje = $('continua').checked ? diasProjetados(merged, av.base, hoje) : diasAte(merged, hoje);
+  const idade = idadeAMD(nasc, hoje);
+  const carenciaMeses = ps.salarios.length || Math.floor(dHoje/30);
+  $('cardsTempo').innerHTML = [
+    ['Tempo em 12/11/2019 (véspera da EC 103)', fmtAMD(diasParaAMD(av.diasNaEC))],
+    ['Tempo na data-base', fmtAMD(diasParaAMD(dHoje))],
+    ['Idade na data-base', `${idade.y} anos, ${idade.m} meses e ${idade.d} dias`],
+    ['Competências p/ carência (aprox.)', String(carenciaMeses)],
+  ].map(c => `<div class="card"><div class="l">${c[0]}</div><div class="v">${c[1]}</div></div>`).join('');
+
+  // tabela de regras + RMI
+  const tb = $('tabRegras').querySelector('tbody');
+  tb.innerHTML = '';
+  const linhas = [];
+  for (const r of av.regras){
+    let st, cls;
+    if (r.detalhe.startsWith('Inaplicável')) { st='Inaplicável'; cls='st-na'; }
+    else if (r.cumprida) { st='Cumprida'; cls='st-ok'; }
+    else if (r.data) { st='Projetada'; cls='st-fut'; }
+    else { st='Não alcançada'; cls='st-na'; }
+
+    let rmiTxt = '—', rmiInfo = null;
+    if (ps.salarios.length && r.data && st!=='Inaplicável'){
+      const der = Math.max(r.data, r.id==='da' ? r.data : r.data);
+      const sal = r.id==='da' ? ps.salarios.filter(s => s.ano < 2019 || (s.ano===2019 && s.mes<=10)) : ps.salarios;
+      if (sal.length){
+        const tcDias = $('continua').checked ? diasProjetados(merged, av.base, der) : diasAte(merged, der);
+        rmiInfo = calcularRMI(r.calc, { salarios: sal, tcDiasNaDER: tcDias, idadeNaDER: idadeAnos(nasc, der), sexo, tcMinRegra: tcMinimo(sexo), params });
+        if (!rmiInfo.erro) rmiTxt = fmtMoeda(rmiInfo.rmi);
+      }
+    }
+    r._rmi = rmiInfo; r._st = st;
+    linhas.push(`<tr><td><b>${r.nome}</b><br><span class="hint">${r.fundamento}</span></td><td class="${cls}">${st}</td><td>${r.data?fmtBR(r.data):'—'}</td><td>${r.detalhe}${rmiInfo&&!rmiInfo.erro?'<br><span class="hint">'+rmiInfo.obs+(rmiInfo.fator?` Fator: ${rmiInfo.fator.toFixed(4)}.`:'')+'</span>':''}</td><td class="rmi">${rmiTxt}</td></tr>`);
+  }
+  tb.innerHTML = linhas.join('');
+  $('resultado').style.display = '';
+  ultimaAnalise = { ctx, av, params, salarios: ps.salarios, dHoje, idade };
+  $('secMinuta').style.display = 'none';
+}
+
+// ===================== minuta =====================
+function gerarMinuta(){
+  if (!ultimaAnalise) return;
+  const { ctx, av, dHoje, idade } = ultimaAnalise;
+  const nome = ($('nome').value || 'SEGURADO(A)').toUpperCase();
+  const sx = ctx.sexo==='M' ? 'o segurado' : 'a segurada';
+  const tcMin = tcMinimo(ctx.sexo);
+  const L = [];
+  L.push('PARECER PREVIDENCIÁRIO');
+  L.push('');
+  L.push((ctx.sexo==='M'?'SEGURADO: ':'SEGURADA: ') + nome);
+  L.push('');
+  L.push('BENEFÍCIO: APOSENTADORIA PELAS REGRAS DE TRANSIÇÃO PREVISTAS NA EC 103/2019 (INSS – RGPS)');
+  L.push('');
+  L.push('Trata-se de parecer previdenciário, com base nos documentos apresentados, bem como nas informações sociais que constam na base de dados do INSS.');
+  L.push('');
+  L.push('1.0 - DOS REQUISITOS PARA A CONCESSÃO DE APOSENTADORIA POR TEMPO DE CONTRIBUIÇÃO – ANTERIOR À EC 103/2019');
+  L.push('');
+  L.push(`Os requisitos para a concessão da aposentadoria por tempo de contribuição estão definidos no artigo 201, § 7º, inciso I, da Constituição Federal: ${tcMin} anos de contribuição (${ctx.sexo==='M'?'homem':'mulher'}).`);
+  L.push('');
+  L.push(`No caso em exame, efetuada a análise contributiva com base nos períodos informados, verifica-se que, até 12/11/2019 (data anterior à publicação da EC 103/2019), o tempo de contribuição era de: ${fmtAMD(diasParaAMD(av.diasNaEC))}.`);
+  L.push('');
+  L.push(`Na data-base desta análise (${fmtBR(ctx.hoje)}), o tempo de contribuição apurado é de ${fmtAMD(diasParaAMD(dHoje))} e a idade de ${idade.y} anos, ${idade.m} meses e ${idade.d} dias.`);
+  L.push('');
+  L.push('2.0 - DOS REQUISITOS APÓS A VIGÊNCIA DA EMENDA CONSTITUCIONAL 103/2019 E DO CASO CONCRETO');
+  L.push('');
+  L.push('Aplicadas as regras de transição da EC 103/2019 ao caso concreto, temos os seguintes cenários:');
+  L.push('');
+  let i = 0;
+  for (const r of av.regras){
+    if (r._st === 'Inaplicável' || r._st === 'Não alcançada') continue;
+    i++;
+    L.push(`2.${i} - ${r.nome.toUpperCase()}`);
+    L.push(r.detalhe);
+    if (r._rmi && !r._rmi.erro){
+      L.push(`RENDA MENSAL INICIAL estimada em ${fmtBR(r.data)}: ${fmtMoeda(r._rmi.rmi)}`);
+      if (r._rmi.descartes) L.push(`APLICAÇÃO DO DESCARTE (art. 26, §6º, EC 103/19): ${r._rmi.descartes} contribuição(ões)`);
+      if (r._rmi.coefic != null) L.push(`COEFICIENTE DE CÁLCULO: ${(r._rmi.coefic*100).toFixed(0)}%`);
+      if (r._rmi.fator != null) L.push(`FATOR PREVIDENCIÁRIO: ${r._rmi.fator.toFixed(4)} — EXPECTATIVA DE SOBREVIDA: ${r._rmi.es} anos (fonte IBGE)`);
+    }
+    L.push('');
+  }
+  L.push('3.0 - OPINIÃO');
+  L.push('');
+  L.push('[A SER COMPLETADO PELO ADVOGADO: comparação entre os cenários, omissões e divergências do CNIS, providências e estratégia recomendada.]');
+  L.push('');
+  L.push('Todavia, caso haja mudança da legislação previdenciária, orientamos ' + sx + ' a reavaliar a sua situação previdenciária com base na lei vigente.');
+  L.push('');
+  L.push('É o que nos parece, salvo melhor juízo, estando à disposição para quaisquer esclarecimentos.');
+  L.push('');
+  L.push('São Paulo, ' + new Date().toLocaleDateString('pt-BR', { day:'2-digit', month:'long', year:'numeric' }) + '.');
+  L.push('');
+  L.push('— Minuta gerada por protótipo. Conferir todos os números, índices de atualização e a tábua IBGE vigente antes do uso. —');
+  $('minuta').value = L.join('\n');
+  $('secMinuta').style.display = '';
+  $('secMinuta').scrollIntoView({ behavior:'smooth' });
+}
+
+function baixarDoc(){
+  const esc = s => s.replace(/&/g,'&amp;').replace(/</g,'&lt;');
+  const paras = $('minuta').value.split('\n').map(l => l.trim()===''
+    ? '<p>&nbsp;</p>'
+    : (/^[0-9]+\.[0-9]* ?-|^PARECER/.test(l) ? `<p><b>${esc(l)}</b></p>` : `<p style="text-align:justify">${esc(l)}</p>`)).join('');
+  const html = `<html xmlns:w="urn:schemas-microsoft-com:office:word"><head><meta charset="utf-8"><style>body{font-family:Arial;font-size:12pt}</style></head><body>${paras}</body></html>`;
+  const blob = new Blob(['﻿', html], { type:'application/msword' });
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = 'minuta-parecer-' + ($('nome').value||'caso').toLowerCase().replace(/\s+/g,'-') + '.doc';
+  a.click();
+}
+
+// ===================== persistência =====================
+function dadosAtuais(){
+  return { nome:$('nome').value, sexo:$('sexo').value, nasc:$('nasc').value, hoje:$('hoje').value,
+    continua:$('continua').checked, periodos:$('periodos').value, salarios:$('salarios').value,
+    pteto:$('pteto').value, psalmin:$('psalmin').value, pdivmin:$('pdivmin').value, ptabua:$('ptabua').value };
+}
+function aplicarDados(d){
+  for (const k of ['nome','nasc','hoje','periodos','salarios','pteto','psalmin','pdivmin','ptabua']) if (d[k]!=null) $(k).value = d[k];
+  if (d.sexo) $('sexo').value = d.sexo;
+  if (d.continua!=null) $('continua').checked = d.continua;
+}
+function salvarCaso(){
+  const nome = $('nome').value.trim() || ('Caso ' + new Date().toLocaleString('pt-BR'));
+  const tudo = JSON.parse(localStorage.getItem('mf_casos') || '{}');
+  tudo[nome] = dadosAtuais();
+  localStorage.setItem('mf_casos', JSON.stringify(tudo));
+  atualizarCasos();
+  $('msg').textContent = 'Caso salvo neste navegador: ' + nome;
+}
+function atualizarCasos(){
+  const sel = $('casosSalvos');
+  const tudo = JSON.parse(localStorage.getItem('mf_casos') || '{}');
+  sel.innerHTML = '<option value="">Abrir caso salvo...</option>' + Object.keys(tudo).map(n => `<option>${n}</option>`).join('');
+}
+function abrirCaso(nome){
+  if (!nome) return;
+  const tudo = JSON.parse(localStorage.getItem('mf_casos') || '{}');
+  if (tudo[nome]) { aplicarDados(tudo[nome]); $('msg').textContent = 'Caso carregado: ' + nome; }
+}
+function exportarJSON(){
+  const blob = new Blob([JSON.stringify(dadosAtuais(), null, 2)], { type:'application/json' });
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = 'caso-previdenciario.json';
+  a.click();
+}
+function importarJSON(inp){
+  const f = inp.files[0]; if (!f) return;
+  const r = new FileReader();
+  r.onload = () => { try { aplicarDados(JSON.parse(r.result)); $('msg').textContent='Dados importados.'; } catch(e){ $('msg').textContent='Arquivo inválido.'; } };
+  r.readAsText(f);
+}
+// ===================================================================
+// LEITOR DE CNIS (Extrato Previdenciário digital do Meu INSS)
+// Recebe linhas de texto (agrupadas por posição vertical) e devolve
+// {nome, nascimento, vinculos:[{seq,origem,ini,fim,aberto,indicadores}],
+//  competencias:[{comp,valor}], indicadores:Set, avisos:[]}
+// ===================================================================
+
+
+const RX_DATA = /\b(\d{2}\/\d{2}\/\d{4})\b/g;
+const RX_COMP = /(?<![\d\/])(\d{2}\/\d{4})\b/g;
+const RX_MONEY = /\b\d{1,3}(?:\.\d{3})*,\d{2}\b/g;
+const RX_NIT = /\b\d{3}\.\d{5}\.\d{2}-\d\b/;
+const RX_IND = /\b[A-Z]{3,5}(?:-[A-Z0-9]{2,14}){1,3}\b/g;
+
+function moneyToNum(s) { return parseFloat(s.replace(/\./g, '').replace(',', '.')); }
+function compToOrd(c) { const [m, a] = c.split('/').map(Number); return a * 12 + m; }
+
+function parseCNISLinhas(linhas) {
+  const out = { nome: null, nascimento: null, vinculos: [], competencias: [], indicadores: new Set(), avisos: [] };
+  const porComp = {}; // comp -> soma
+  let ultimoVinculo = null;
+  let modo = null; // 'remu' | 'contrib'
+
+  for (let i = 0; i < linhas.length; i++) {
+    const L = linhas[i].replace(/\s+/g, ' ').trim();
+    if (!L) continue;
+
+    // cabeçalhos / rodapés
+    if (/Página \d+ de \d+|CNIS - Cadastro|Extrato Previdenciário|poderá rever a qualquer tempo|terá reconhecida como tempo|Identificação do Filiado|Relações Previdenciárias|autenticidade/i.test(L)) continue;
+
+    // identificação
+    if (!out.nome) { const m = L.match(/Nome:\s*([A-ZÀ-Ü][A-ZÀ-Ü ']+?)(?:\s+Nome da mãe|$)/); if (m) out.nome = m[1].trim(); }
+    if (!out.nascimento) { const m = L.match(/Data de nascimento:\s*(\d{2}\/\d{2}\/\d{4})/); if (m) out.nascimento = m[1]; }
+
+    // legenda de indicadores: parar coleta de competências
+    if (/Legenda de Indicadores/i.test(L)) { modo = null; ultimoVinculo = null; continue; }
+    if (/Valores Consolidados por Ano Civil/i.test(L)) { modo = null; continue; }
+
+    // marcadores de seção
+    if (/^Remunerações\b/.test(L)) { modo = 'remu'; continue; }
+    if (/^Contribuições\b/.test(L)) { modo = 'contrib'; continue; }
+
+    // linha de vínculo: começa com seq numérico e tem NIT
+    const mSeq = L.match(/^(\d{1,3})\s/);
+    if (mSeq && RX_NIT.test(L) && !/^\d{2}\/\d{4}/.test(L)) {
+      const datas = [...L.matchAll(RX_DATA)].map(m => m[1]);
+      const seq = +mSeq[1];
+      // origem: entre NIT/código e o resto
+      let origem = '';
+      const mOri = L.match(/\d{3}\.\d{5}\.\d{2}-\d\s+(?:[\d.]+\s+)?([A-ZÀ-Ü][A-ZÀ-Ü0-9 .\/&'-]*?)(?=\s+(?:\d{4,}|Empregado|Contribuinte|Trabalhador|Facultativo|Segurado|\d{2}\/\d{2}\/\d{4}))/);
+      if (mOri) origem = mOri[1].trim();
+      const tipoCI = /Contribuinte Individual|RECOLHIMENTO|Facultativo/i.test(L);
+      const v = {
+        seq, origem: origem || ('Vínculo seq. ' + seq),
+        ini: datas[0] || null,
+        fim: datas[1] || null,
+        aberto: datas.length < 2,
+        tipo: tipoCI ? 'CI' : 'Empregado',
+        indicadores: []
+      };
+      out.vinculos.push(v);
+      ultimoVinculo = v;
+      modo = null;
+      continue;
+    }
+
+    // linha de indicadores do vínculo
+    if (/^Indicadores:/.test(L) && ultimoVinculo) {
+      const inds = L.match(RX_IND) || [];
+      for (const x of inds) if (x !== 'Indicadores') { ultimoVinculo.indicadores.push(x); out.indicadores.add(x); }
+      continue;
+    }
+
+    // linhas de competências (remunerações ou contribuições)
+    const comps = [...L.matchAll(RX_COMP)].map(m => ({ comp: m[1], idx: m.index }));
+    if (comps.length && modo) {
+      // não confundir com linha de vínculo CI (tem dd/mm/aaaa no padrão data e não mm/aaaa)
+      for (let c = 0; c < comps.length; c++) {
+        const ini = comps[c].idx;
+        const fim = c + 1 < comps.length ? comps[c + 1].idx : L.length;
+        const seg = L.slice(ini + 7, fim); // depois de mm/aaaa
+        const monies = seg.match(RX_MONEY) || [];
+        let valor = null;
+        if (modo === 'contrib') {
+          // contribuição: [data pgto] contribuição salário -> usar o MAIOR (salário de contribuição)
+          if (monies.length) valor = Math.max(...monies.map(moneyToNum));
+        } else {
+          // remuneração: primeiro valor monetário do segmento
+          if (monies.length) valor = moneyToNum(monies[0]);
+        }
+        if (valor != null && isFinite(valor)) {
+          porComp[comps[c].comp] = (porComp[comps[c].comp] || 0) + valor;
+        }
+        // indicadores por competência
+        const inds = seg.match(RX_IND) || [];
+        for (const x of inds) out.indicadores.add(x);
+      }
+      continue;
+    }
+  }
+
+  out.competencias = Object.entries(porComp)
+    .map(([comp, valor]) => ({ comp, valor: Math.round(valor * 100) / 100 }))
+    .sort((a, b) => compToOrd(a.comp) - compToOrd(b.comp));
+
+  if (!out.vinculos.length) out.avisos.push('Nenhum vínculo identificado — o PDF pode ser digitalizado (imagem) ou de layout diferente. Confira manualmente.');
+  for (const v of out.vinculos) if (v.aberto) out.avisos.push(`Vínculo seq. ${v.seq} (${v.origem}) sem data fim no CNIS — informe a data fim ou a data-base.`);
+  if (out.indicadores.has('PSC-MEN-SM-EC103')) out.avisos.push('Há competências abaixo do salário mínimo (PSC-MEN-SM-EC103): podem exigir complementação/agrupamento para contar como tempo (art. 29, EC 103).');
+  if (out.indicadores.has('PREM-BLOQ-EC103')) out.avisos.push('Há contribuições com bloqueio para ajuste (PREM-BLOQ-EC103) — foram somadas na competência, mas o INSS pode desconsiderá-las/ajustá-las; confira na tela antes de calcular.');
+  if (out.indicadores.has('IREC-INDPEND') || out.indicadores.has('IREM-INDPEND')) out.avisos.push('Há recolhimentos/remunerações com pendências (IREC/IREM-INDPEND): validar documentação.');
+  out.avisos.push('Salários importados são NOMINAIS (sem atualização monetária). Para RMI precisa, aplicar os fatores de atualização oficiais.');
+  return out;
+}
+
+// agrupa itens do pdf.js em linhas de texto, em coordenadas de tela
+// (corrige páginas rotacionadas usando o transform do viewport)
+function itensParaLinhas(items, viewport, Util) {
+  const rows = [];
+  for (const it of items) {
+    let x = it.transform[4], y = it.transform[5];
+    if (viewport && Util) {
+      const t = Util.transform(viewport.transform, it.transform);
+      x = t[4]; y = t[5]; // espaço de tela: y cresce para baixo
+    } else {
+      y = -y; // fallback: inverte para ordenar de cima p/ baixo
+    }
+    const s = it.str;
+    if (!s.trim()) continue;
+    let row = rows.find(r => Math.abs(r.y - y) < 4);
+    if (!row) { row = { y, cells: [] }; rows.push(row); }
+    row.cells.push({ x, s });
+  }
+  rows.sort((a, b) => a.y - b.y);
+  return rows.map(r => r.cells.sort((a, b) => a.x - b.x).map(c => c.s).join(' '));
+}
+
+
+
+// ============== IMPORTAÇÃO DE CNIS (PDF) ==============
+const PDFJS_CDN = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/';
+let pdfjsPronto = null;
+function carregarPdfJs(){
+  if (pdfjsPronto) return pdfjsPronto;
+  pdfjsPronto = new Promise((res, rej) => {
+    const s = document.createElement('script');
+    s.src = PDFJS_CDN + 'pdf.min.js';
+    s.onload = () => { window.pdfjsLib.GlobalWorkerOptions.workerSrc = PDFJS_CDN + 'pdf.worker.min.js'; res(window.pdfjsLib); };
+    s.onerror = () => rej(new Error('Sem conexão com a internet — a leitura de PDF usa uma biblioteca on-line. Preencha manualmente ou conecte-se.'));
+    document.head.appendChild(s);
+  });
+  return pdfjsPronto;
+}
+
+async function importarCNIS(inp){
+  const file = inp.files[0];
+  const st = $('cnisStatus');
+  if (!file) return;
+  st.textContent = 'Lendo ' + file.name + '...';
+  try {
+    const pdfjsLib = await carregarPdfJs();
+    const data = new Uint8Array(await file.arrayBuffer());
+    const doc = await pdfjsLib.getDocument({ data }).promise;
+    let linhas = [];
+    for (let p = 1; p <= doc.numPages; p++){
+      const page = await doc.getPage(p);
+      const tc = await page.getTextContent();
+      linhas = linhas.concat(itensParaLinhas(tc.items, page.getViewport({ scale: 1 }), pdfjsLib.Util));
+    }
+    const r = parseCNISLinhas(linhas);
+    if (!r.vinculos.length && !r.competencias.length){
+      st.textContent = 'Não encontrei dados no PDF — pode ser CNIS digitalizado (imagem) ou outro layout. Preencha manualmente.';
+      return;
+    }
+    // preencher campos
+    if (r.nome && !$('nome').value) $('nome').value = r.nome;
+    if (r.nascimento) $('nasc').value = r.nascimento;
+    const hoje = $('hoje').value;
+    $('periodos').value = r.vinculos.map(v =>
+      `${v.ini} ${v.fim || hoje} ${v.origem}${v.aberto ? ' (SEM DATA FIM no CNIS — conferir)' : ''}`).join('\n');
+    $('salarios').value = r.competencias.map(c =>
+      `${c.comp} ${c.valor.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`).join('\n');
+    const inds = [...r.indicadores].join(', ') || 'nenhum';
+    st.innerHTML = `<b>CNIS importado:</b> ${r.vinculos.length} vínculo(s), ${r.competencias.length} competência(s) de salário. Indicadores: ${inds}.<br>` +
+      r.avisos.map(a => '⚠ ' + a).join('<br>') +
+      '<br><b>Confira os dados nas caixas abaixo (e ajuste se necessário) antes de clicar em Analisar.</b>';
+  } catch (e){
+    st.textContent = 'Erro ao ler o PDF: ' + e.message;
+  }
+  inp.value = '';
+}
+
+</script>
+</body>
+</html>

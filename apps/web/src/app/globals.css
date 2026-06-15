@@ -1,0 +1,308 @@
+/* ========================================
+   MFAA — Planejador Previdenciário
+   Visual sóbrio jurídico
+   ======================================== */
+
+:root {
+  --azul-marinho: #1F3864;
+  --azul-claro: #2B5EA7;
+  --azul-hover: #163057;
+  --fundo: #F5F6FA;
+  --fundo-card: #FFFFFF;
+  --borda: #D1D5DB;
+  --texto: #1E293B;
+  --texto-secundario: #64748B;
+  --sucesso: #16A34A;
+  --alerta: #D97706;
+  --erro: #DC2626;
+  --raio: 6px;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+  background: var(--fundo);
+  color: var(--texto);
+  line-height: 1.5;
+  min-height: 100vh;
+}
+
+/* Layout principal */
+.app-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.app-header {
+  background: var(--azul-marinho);
+  color: #fff;
+  padding: 12px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.app-header h1 {
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+}
+
+.app-header .usuario-info {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 13px;
+  color: #CBD5E1;
+}
+
+.app-main {
+  flex: 1;
+  padding: 24px;
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.app-footer {
+  background: var(--azul-marinho);
+  color: #94A3B8;
+  text-align: center;
+  padding: 10px 24px;
+  font-size: 12px;
+  letter-spacing: 0.2px;
+}
+
+/* Botões */
+button, .btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 18px;
+  border: none;
+  border-radius: var(--raio);
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.btn-primario {
+  background: var(--azul-marinho);
+  color: #fff;
+}
+.btn-primario:hover { background: var(--azul-hover); }
+
+.btn-secundario {
+  background: transparent;
+  color: var(--azul-marinho);
+  border: 1px solid var(--borda);
+}
+.btn-secundario:hover { background: #EEF2FF; }
+
+.btn-perigo {
+  background: var(--erro);
+  color: #fff;
+}
+
+/* Cards */
+.card {
+  background: var(--fundo-card);
+  border: 1px solid var(--borda);
+  border-radius: var(--raio);
+  padding: 20px;
+  margin-bottom: 16px;
+}
+
+/* Formulários */
+label {
+  display: block;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--texto-secundario);
+  margin-bottom: 4px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="date"],
+input[type="search"],
+select,
+textarea {
+  width: 100%;
+  padding: 8px 12px;
+  border: 1px solid var(--borda);
+  border-radius: var(--raio);
+  font-size: 14px;
+  font-family: inherit;
+  color: var(--texto);
+  background: #fff;
+  transition: border-color 0.15s;
+}
+
+input:focus, select:focus, textarea:focus {
+  outline: none;
+  border-color: var(--azul-claro);
+  box-shadow: 0 0 0 2px rgba(43, 94, 167, 0.15);
+}
+
+.form-row {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.form-row > * { flex: 1; }
+
+.form-group {
+  margin-bottom: 16px;
+}
+
+/* Tabelas */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+
+th {
+  background: var(--azul-marinho);
+  color: #fff;
+  padding: 10px 12px;
+  text-align: left;
+  font-weight: 500;
+  font-size: 13px;
+}
+
+td {
+  padding: 10px 12px;
+  border-bottom: 1px solid var(--borda);
+}
+
+tr:hover td { background: #F8FAFC; }
+
+/* Status badges */
+.badge {
+  display: inline-block;
+  padding: 2px 10px;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.badge-coleta { background: #DBEAFE; color: #1E40AF; }
+.badge-conferencia { background: #FEF3C7; color: #92400E; }
+.badge-auditoria { background: #E0E7FF; color: #3730A3; }
+.badge-cenarios { background: #F3E8FF; color: #6B21A8; }
+.badge-minutas { background: #FCE7F3; color: #9D174D; }
+.badge-revisao { background: #FFEDD5; color: #9A3412; }
+.badge-aprovado { background: #D1FAE5; color: #065F46; }
+.badge-entregue { background: #ECFDF5; color: #047857; }
+
+/* Tabs */
+.tabs {
+  display: flex;
+  gap: 0;
+  border-bottom: 2px solid var(--borda);
+  margin-bottom: 20px;
+}
+
+.tab {
+  padding: 10px 20px;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--texto-secundario);
+  border: none;
+  background: none;
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+  margin-bottom: -2px;
+  transition: color 0.15s, border-color 0.15s;
+}
+
+.tab:hover { color: var(--azul-marinho); }
+
+.tab.ativa {
+  color: var(--azul-marinho);
+  border-bottom-color: var(--azul-marinho);
+}
+
+/* Mensagens */
+.msg { padding: 10px 14px; border-radius: var(--raio); margin-bottom: 12px; font-size: 14px; }
+.msg-erro { background: #FEF2F2; color: var(--erro); border: 1px solid #FECACA; }
+.msg-sucesso { background: #F0FDF4; color: var(--sucesso); border: 1px solid #BBF7D0; }
+.msg-alerta { background: #FFFBEB; color: var(--alerta); border: 1px solid #FDE68A; }
+
+/* Login */
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: var(--azul-marinho);
+}
+
+.login-card {
+  background: #fff;
+  padding: 40px;
+  border-radius: 8px;
+  width: 100%;
+  max-width: 420px;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.2);
+}
+
+.login-card h1 {
+  color: var(--azul-marinho);
+  font-size: 20px;
+  margin-bottom: 4px;
+}
+
+.login-card .subtitulo {
+  color: var(--texto-secundario);
+  font-size: 14px;
+  margin-bottom: 24px;
+}
+
+/* Toolbar / ações */
+.toolbar {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+/* Busca */
+.busca-input {
+  max-width: 320px;
+}
+
+/* Página título */
+.page-titulo {
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--azul-marinho);
+  margin-bottom: 20px;
+}
+
+/* Link estilo */
+a {
+  color: var(--azul-claro);
+  text-decoration: none;
+}
+a:hover { text-decoration: underline; }
+
+/* Utilitários */
+.text-center { text-align: center; }
+.text-right { text-align: right; }
+.mt-4 { margin-top: 16px; }
+.mb-4 { margin-bottom: 16px; }
+.text-muted { color: var(--texto-secundario); font-size: 13px; }
+.sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); border: 0; }

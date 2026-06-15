@@ -1,0 +1,30 @@
+{
+  "name": "planejador-previdenciario-rgps",
+  "version": "0.2.0",
+  "description": "Sistema de planejamento previdenciário com cálculo automático de aposentadoria por EC 103/2019",
+  "main": "src/core/calculation-engine.js",
+  "private": true,
+  "workspaces": [
+    "packages/*",
+    "apps/*"
+  ],
+  "scripts": {
+    "test": "npm test --workspace=@mfaa/prev-engine",
+    "test:legacy": "node tests/calculation-engine.test.js",
+    "build": "npm run build --workspace=@mfaa/prev-engine",
+    "dev": "http-server src -p 8080 -c-1"
+  },
+  "keywords": [
+    "previdência",
+    "aposentadoria",
+    "RGPS",
+    "EC 103/2019",
+    "cálculo-atuarial"
+  ],
+  "author": "Escritório Machado Filgueiras",
+  "license": "UNLICENSED",
+  "devDependencies": {
+    "docx": "^8.0.0",
+    "http-server": "^14.0.0"
+  }
+}

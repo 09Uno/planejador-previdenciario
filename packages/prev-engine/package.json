@@ -1,0 +1,19 @@
+{
+  "name": "@mfaa/prev-engine",
+  "version": "0.2.0",
+  "description": "Motor de cálculo previdenciário (RGPS) — Machado Filgueiras. Funções puras, determinísticas e testadas por regressão contra casos reais.",
+  "type": "module",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "test": "vitest run",
+    "test:watch": "vitest"
+  },
+  "license": "UNLICENSED",
+  "devDependencies": {
+    "tsx": "^4.22.4",
+    "typescript": "^5.5.0",
+    "vitest": "^2.0.0"
+  }
+}

@@ -1,0 +1,57 @@
+# Dependencies
+node_modules/
+package-lock.json
+yarn.lock
+
+# Build outputs
+dist/
+build/
+.next/
+out/
+
+# Environment
+.env
+.env.local
+.env.*.local
+
+# OS
+.DS_Store
+Thumbs.db
+.~lock.*
+*.tmp
+
+# IDEs
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+.project
+.classpath
+*.sublime-workspace
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+
+# Legacy/Archive
+_legacy/
+docs/reference/
+
+# Storage (uploads de casos — dados locais, LGPD)
+storage/
+
+# SQLite dev database (recriado com prisma migrate)
+*.db
+*.db-journal
+
+# IDE history
+.history/
+
+# Misc
+*.orig
+.cache/
+.coverage/
+*.pyc
+__pycache__/
