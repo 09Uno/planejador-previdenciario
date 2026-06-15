@@ -3,8 +3,6 @@ services:
     build: .
     container_name: planejador-mfaa
     restart: unless-stopped
-    ports:
-      - "3100:3000"
     environment:
       - DATABASE_URL=file:/data/planejador.db
       - JWT_SECRET=${JWT_SECRET:-mfaa-trocar-para-segredo-forte}
